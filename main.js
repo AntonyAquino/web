@@ -7,7 +7,7 @@ if (burger && mobileMenu) {
     mobileMenu.classList.toggle('open');
   });
 
-  // Cierra el menú al hacer clic en cualquier enlace
+
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
@@ -21,7 +21,7 @@ const skillObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const fill = entry.target.querySelector('.skill-bar-fill');
       if (fill) {
-        // Toma el ancho definido en el style del HTML y lo aplica
+  
         const targetWidth = fill.style.width;
         fill.style.width = '0';
         requestAnimationFrame(() => {
@@ -41,7 +41,7 @@ document.querySelectorAll('.skill-card').forEach(card => {
 const timelineObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
-      // Agrega un pequeño delay escalonado por posición
+  
       setTimeout(() => {
         entry.target.classList.add('visible');
       }, i * 150);
@@ -68,9 +68,9 @@ if (sendBtn) {
     const email   = formEmail ? formEmail.value.trim() : '';
     const message = formMsg   ? formMsg.value.trim()   : '';
 
-    // Validación básica
+
     if (!name || !email || !message) {
-      // Resalta campos vacíos
+   
       [formName, formEmail, formMsg].forEach(field => {
         if (field && !field.value.trim()) {
           field.style.borderColor = '#ff4444';
@@ -91,7 +91,7 @@ if (sendBtn) {
 
     window.location.href = `mailto:${TU_CORREO}?subject=${subject}&body=${body}`;
 
-    // Limpia el formulario
+  
     if (formName)  formName.value  = '';
     if (formEmail) formEmail.value = '';
     if (formMsg)   formMsg.value   = '';

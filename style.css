@@ -1,15 +1,15 @@
 
 
 :root {
-  --bg:       #080b0f;       /* Fondo general */
-  --surface:  #0e1318;       /* Fondo de secciones alternas */
-  --surface2: #141c24;       /* Fondo de tarjetas/inputs */
-  --border:   #1e2d3d;       /* Color de bordes */
-  --accent:   #00d4ff;       /* 👉 COLOR PRINCIPAL — cámbialo si quieres otra paleta */
-  --accent2:  #00ff9d;       /* 👉 COLOR SECUNDARIO */
-  --accent3:  #7c3aed;       /* 👉 COLOR TERCIARIO (educación) */
-  --text:     #e2e8f0;       /* Texto principal */
-  --muted:    #64748b;       /* Texto secundario/apagado */
+  --bg:       #080b0f;       
+  --surface:  #0e1318;      
+  --surface2: #141c24;       
+  --border:   #1e2d3d;       
+  --accent:   #00d4ff;       
+  --accent2:  #00ff9d;    
+  --accent3:  #7c3aed;      
+  --text:     #e2e8f0;       
+  --muted:    #64748b;       
   --mono:     'Space Mono', monospace;
   --sans:     'Syne', sans-serif;
 }
@@ -30,7 +30,7 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
 
-/* ── RUIDO DE FONDO (overlay decorativo) ── */
+/* ── RUIDO DE FONDO  ── */
 body::before {
   content: '';
   position: fixed; inset: 0;

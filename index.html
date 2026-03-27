@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>Steven Aquino — Ingeniería en Sistemas</title>
+
+  <!-- Fuentes de Google — no necesitas cambiar esto -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Archivo de estilos externo -->
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+</head>
+<body>
+
+  <!-- ============================================================
+    BARRA DE NAVEGACIÓN
+    👉 Las letras "SHA" son las iniciales de tu nombre (Steven Herrarte Aquino).
+       Cámbialas si quieres otras iniciales.
+    👉 Los enlaces del menú coinciden con los IDs de cada sección.
+       No los cambies a menos que también cambies los IDs abajo.
+  ============================================================ -->
+  <nav>
+    <div class="nav-logo">Estudiante</div>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre mí</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#estudios">Estudios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <!-- Botón hamburguesa para móvil (controlado por JS) -->
+    <button class="nav-burger" aria-label="Abrir menú">&#9776;</button>
+  </nav>
+
+  <!-- Menú móvil desplegable -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#sobre">Sobre mí</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#estudios">Estudios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================================================
+    SECCIÓN HERO (portada principal)
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-bg-lines"></div>
+    <div class="hero-grid">
+
+      <!-- Columna izquierda: texto principal -->
+      <div class="hero-left">
+
+        <!-- 👉 Cambia este texto según tu disponibilidad actual -->
+        <div class="hero-tag">Disponible para oportunidades</div>
+
+    
+        <h1>Steven<br><span>Herrarte</span><br>Aquino</h1>
+
+        <!-- ============================================================
+          👉 DESCRIPCIÓN BREVE DE TI MISMO
+             Máximo 2-3 oraciones. Menciona tu carrera, experiencia clave
+             y lo que buscas profesionalmente.
+        ============================================================ -->
+        <p class="hero-desc">
+          Estudiante de Ingeniería en Sistemas con experiencia en entornos
+          administrativos, programación orientada a objetos y bases de datos SQL.
+          Comprometido con construir soluciones eficientes y escalables.
+        </p>
+
+        <div class="hero-btns">
+          <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+          <a href="#contacto" class="btn btn-outline">Contactar</a>
+        </div>
+      </div>
+
+      <!-- Columna derecha: tarjeta de información rápida -->
+      <div class="hero-visual">
+        <div class="hero-card">
+
+          <!-- ============================================================
+            👉 ESTADO ACTUAL Y CIUDAD
+               Ej: "Freelance disponible — Guatemala City"
+          ============================================================ -->
+          <div class="status-dot">En busca de oportunidades — Guatemala</div>
+
+          <p class="card-sublabel">STACK TÉCNICO</p>
+
+          <!-- ============================================================
+            👉 CHIPS DE TECNOLOGÍAS
+               Agrega o quita <span class="chip">...</span> según tus skills.
+               Los que tienen class="chip accent" se destacan en color azul.
+          ============================================================ -->
+          <div class="skill-chips">
+            <span class="chip accent">C#</span>
+            <span class="chip accent">SQL</span>
+            <span class="chip">C++</span>
+            <span class="chip">Java</span>
+            <span class="chip">HTML/CSS</span>  
+            <span class="chip">.NET</span>
+            <span class="chip">MySQL</span>
+            <span class="chip">Offimatica</span>
+            <span class="chip">Redes</span>
+          </div>
+
+          <div class="hero-card-footer">
+            <p class="card-sublabel">ESTADO ACTUAL</p>
+            <!-- ============================================================
+              👉 SEMESTRE Y UNIVERSIDAD ACTUAL
+            ============================================================ -->
+            <p class="card-info">🎓 5to Semestre — Ing. Sistemas</p>
+            <p class="card-info muted">Universidad Mariano Gálvez - Guatemala</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    SECCIÓN: SOBRE MÍ
+  ============================================================ -->
+  <section id="sobre">
+    <div class="section-inner">
+      <p class="section-label">// 01. sobre mí</p>
+      <h2 class="section-title">¿Quién <span>soy</span>?</h2>
+
+      <div class="sobre-grid">
+        <div>
+          <div class="sobre-text">
+
+            <!-- ============================================================
+              👉 PÁRRAFOS DE PRESENTACIÓN PERSONAL
+                 Escribe 2-3 párrafos hablando de:
+                 1) Tu formación y en qué semestre vas
+                 2) Tu experiencia práctica más relevante
+                 3) Tu personalidad y qué buscas profesionalmente
+            ============================================================ -->
+            <p>Tengo 20 años y soy estudiante de 5to semestre de Ingeniería en Sistemas en
+              la Universidad Mariano Gálvez de Guatemala. Mi formación me ha dado una base
+              sólida en programación, bases de datos y arquitectura de software.</p>
+
+            <p>He tenido experiencia práctica en entornos bancarios y administrativos, lo que
+              me ha dado perspectiva sobre cómo la tecnología resuelve problemas reales del
+              mundo empresarial.</p>
+
+            <p>Me caracterizo por mi responsabilidad, rapidez de aprendizaje y orientación a
+              resultados. Busco crecer profesionalmente en el área tecnológica, aportando
+              soluciones bien diseñadas y escalables.</p>
+          </div>
+
+          <!-- ============================================================
+            ESTADÍSTICAS RÁPIDAS
+            👉 Edita los números según tu situación real
+          ============================================================ -->
+          <div class="sobre-stats">
+            <div class="stat-box">
+              <div class="stat-num">5to</div>
+              <div class="stat-label">Semestre</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">20</div>        <!-- 👉 Tu edad -->
+              <div class="stat-label">Años</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">2+</div>        <!-- 👉 Años de experiencia aproximados -->
+              <div class="stat-label">Años exp.</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">3</div>         <!-- 👉 Número de certificaciones -->
+              <div class="stat-label">Certs.</div>
+            </div>
+          </div>
+
+          <!-- IDIOMAS -->
+          <div class="lang-bar">
+            <p class="lang-title">Idiomas</p>
+
+            <!-- ============================================================
+              👉 Por cada idioma: cambia el nombre, nivel (ej: B1) y el
+                 porcentaje del ancho de la barra (style="width:XX%")
+                 Nativo = 100%, Básico = 25%, Intermedio = 55%, Avanzado = 80%
+            ============================================================ -->
+            <div class="lang-item">
+              <div class="lang-header">
+                <span class="lang-name">Español</span>
+                <span class="lang-level">Nativo </span>
+              </div>
+              <div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div>
+            </div>
+            <div class="lang-item">
+              <div class="lang-header">
+                <span class="lang-name">Inglés</span>
+                <span class="lang-level">Básico — A2</span>
+              </div>
+              <div class="bar-bg"><div class="bar-fill" style="width:35%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Información de contacto lateral -->
+        <div>
+          <p class="sublabel-mono">Información de contacto</p>
+          <ul class="info-list">
+            <!-- ============================================================
+              👉 ACTUALIZA CADA DATO DE CONTACTO
+            ============================================================ -->
+            <li><span class="icon">📍</span>Chimaltenango, Guatemala</li>
+            <li>
+              <span class="icon">✉️</span>
+              <!-- 👉 Cambia el correo en el href y en el texto -->
+              <a href="https://mail.google.com/mail/?view=cm&to=antonyaquino444@gmail.com&su=¡Hola Steven! Me interesa tu perfil&body=Hola Steven, me interesa contactarte porque...">antonyaquino444@gmail.com</a>
+      
+            </li>
+            <li>
+              <span class="icon">📱</span>
+              <!-- 👉 Cambia tu número de teléfono -->
+              +502 5265 8783
+            </li>
+            <li><span class="icon">🎓</span>Universidad Mariano Gálvez</li>
+            <li>
+                <span class="icon">💼</span>
+                <a href="https://github.com/AntonyAquino">GitHub</a>
+              </li>
+
+            <!-- 
+               OPCIONAL: Agrega tus redes sociales descomentando y editando:
+              <li>
+                <span class="icon">💼</span>
+                <a href="https://linkedin.com/in/TU-USUARIO">LinkedIn</a>
+              </li>
+              
+            ============================================================ -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    SECCIÓN: HABILIDADES TÉCNICAS
+    👉 Agrega, edita o elimina tarjetas según tus conocimientos.
+       El "width" de skill-bar-fill es tu nivel en porcentaje (0–100%).
+       Sé honesto: 50-60% = conocimiento básico, 70-80% = intermedio,
+       85%+ = avanzado/experto.
+  ============================================================ -->
+  <section id="skills">
+    <div class="section-inner">
+      <p class="section-label">// 02. habilidades</p>
+      <h2 class="section-title">Conocimientos <span>Técnicos</span></h2>
+      <div class="skills-grid">
+
+        <!-- TARJETA DE SKILL — copia este bloque para agregar más -->
+        <div class="skill-card" data-level="72">
+          <div class="skill-icon">☕</div>
+          <div class="skill-name">Java</div>
+          <div class="skill-cat">Programación OOP</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-bg">
+              <!-- 👉 Cambia el 72 en data-level arriba (controla la barra con JS) -->
+              <div class="skill-bar-fill" style="width:60%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-level="68">
+          <div class="skill-icon">🔷</div>
+          <div class="skill-name">C# / .NET</div>
+          <div class="skill-cat">Desarrollo de aplicaciones</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-level="58">
+          <div class="skill-icon">⚙️</div>
+          <div class="skill-name">C++</div>
+          <div class="skill-cat">Programación de sistemas</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-level="75">
+          <div class="skill-icon">🗄️</div>
+          <div class="skill-name">SQL / MySQL</div>
+          <div class="skill-cat">Bases de datos relacionales</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-level="65">
+          <div class="skill-icon">🌐</div>
+          <div class="skill-name">HTML / CSS</div>
+          <div class="skill-cat">Desarrollo web front-end</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-level="55">
+          <div class="skill-icon">🔌</div>
+          <div class="skill-name">Redes Básicas</div>
+          <div class="skill-cat">Infraestructura y conectividad</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:55%"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-level="80">
+          <div class="skill-icon">📊</div>
+          <div class="skill-name">Herramientas Ofimática</div>
+          <div class="skill-cat">Ofimática avanzada</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-level="85">
+          <div class="skill-icon">🪟</div>
+          <div class="skill-name">Windows</div>
+          <div class="skill-cat">Sistemas operativos</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    SECCIÓN: EXPERIENCIA LABORAL
+    👉 Agrega un nuevo .timeline-item por cada trabajo/práctica.
+       Ordena del más reciente al más antiguo.
+  ============================================================ -->
+  <section id="experiencia">
+    <div class="section-inner">
+      <p class="section-label">// 03. experiencia</p>
+      <h2 class="section-title">Trayectoria <span>Profesional</span></h2>
+      <div class="timeline">
+
+        <!-- ITEM DE EXPERIENCIA — copia este bloque para agregar más -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <!-- 👉 Nombre del puesto -->
+              <div class="timeline-role">Asistente Administrativo</div>
+              <!-- 👉 Nombre de la empresa/lugar -->
+              <div class="timeline-company">Salón de Belleza</div>
+            </div>
+            <!-- 👉 Período (ej: "Mar. 2024 – Presente") -->
+            <div class="timeline-date">2024 – 2025</div>
+          </div>
+          
+          <!-- 👉 Lista de responsabilidades y logros (mínimo 3) -->
+          <ul class="timeline-list">
+            <li>Gestión de inventario físico y digital mediante Excel.</li>
+            <li>Control y validación de productos.</li>
+            <li>Registro de ventas y apoyo en control administrativo.</li>
+            <li>Apoyo con clientes en relacion a citas.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Practicante Bancario</div>
+              <div class="timeline-company">Entidad Bancaria</div>
+            </div>
+            <div class="timeline-date">2023</div>
+          </div>
+          <ul class="timeline-list">
+            <li>Atención al cliente en servicios financieros: cobro de remesas, depósitos, pagos y cheques.</li>
+            <li>Realización de cuadres de caja diarios.</li>
+            <li>Manejo de sistema bancario transaccional.</li>
+            <li>Organización y control de documentación financiera.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    SECCIÓN: PROYECTOS
+    👉 Agrega un .project-card por cada proyecto.
+       Si tienes link a GitHub u otro lado, convierte el div en <a href="...">
+  ============================================================ -->
+  <section id="proyectos">
+    <div class="section-inner">
+      <p class="section-label">// 04. proyectos</p>
+      <h2 class="section-title">Proyectos <span>Desarrollador</span></h2>
+      <div class="projects-grid">
+
+        <!-- TARJETA DE PROYECTO — copia este bloque para agregar más -->
+        <div class="project-card">
+          <div class="project-top">
+            <!-- 👉 Emoji o ícono representativo del proyecto -->
+            <div class="project-icon">🖥️</div>
+            <div class="project-tech">
+              <!-- 👉 Tecnologías usadas en el proyecto -->
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">.NET</span>
+              <span class="tech-tag">SQL</span>
+            </div>
+          </div>
+          <!-- 👉 Nombre del proyecto -->
+          <div class="project-name">App .NET con Base de Datos</div>
+          <!-- 👉 Descripción breve (2-3 oraciones) -->
+          <div class="project-desc">
+            Desarrollo de aplicación de escritorio con C# y .NET, conectada a una
+            base de datos relacional. Incluye operaciones CRUD, validaciones y
+            gestión de registros.
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-icon">🗄️</div>
+            <div class="project-tech">
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">SQL</span>
+            </div>
+          </div>
+          <div class="project-name">Modelado de Base de Datos</div>
+          <div class="project-desc">
+            Diseño y creación de estructuras relacionales en MySQL. Incluye modelado
+            entidad-relación, normalización, creación de diagramas y consultas SQL complejas.
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-icon">☕</div>
+            <div class="project-tech">
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">OOP</span>
+            </div>
+          </div>
+          <div class="project-name">Proyectos en Java — POO</div>
+          <div class="project-desc">
+            Desarrollo de aplicaciones académicas aplicando principios de programación
+            orientada a objetos: herencia, polimorfismo, encapsulamiento e interfaces.
+          </div>
+        </div>
+
+        <!-- ============================================================
+          👉 AGREGA MÁS PROYECTOS AQUÍ copiando el bloque de arriba.
+             Ideal tener entre 3 y 6 proyectos.
+        ============================================================ -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    SECCIÓN: ESTUDIOS Y CERTIFICACIONES
+  ============================================================ -->
+  <section id="estudios">
+    <div class="section-inner">
+      <p class="section-label">// 05. estudios</p>
+      <h2 class="section-title">Formación <span>Académica</span></h2>
+
+      <div class="edu-grid">
+
+        <!-- TARJETA DE EDUCACIÓN — agrega más si tienes más títulos -->
+        <div class="edu-card">
+          <div class="edu-type">🎓 Educación Superior</div>
+          <!-- 👉 Nombre de la carrera -->
+          <div class="edu-title">Ingeniería en Sistemas</div>
+          <!-- 👉 Estado actual: "En curso", "Graduado", etc. -->
+          <div class="edu-status">5to Semestre — En curso</div>
+          <!-- 👉 Nombre de la universidad -->
+          <div class="edu-inst">Universidad Mariano Gálvez de Guatemala</div>
+          <!-- 👉 Fechas de inicio y (si aplica) fin -->
+          <div class="edu-date">Feb. 2024 – Actualmente</div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-type">📚 Educación Media</div>
+          <div class="edu-title">Bachillerato en Ciencias y Letras</div>
+          <div class="edu-status">Con orientación en Computación</div>
+          <div class="edu-inst">Liceo Preuniversitario del Sur</div>
+          <div class="edu-date">Ene. 2022 – Oct. 2023</div>
+        </div>
+
+      </div>
+
+      <!-- CERTIFICACIONES -->
+      <p class="sublabel-mono" style="margin-top:3.5rem;margin-bottom:1.25rem;">
+        Certificaciones y Cursos
+      </p>
+      <div class="certs-grid">
+
+        <!-- ITEM DE CERT — copia para agregar más -->
+        <div class="cert-item">
+          <div class="cert-badge">🔐</div>
+          <div>
+            <!-- 👉 Nombre del curso/certificación -->
+            <div class="cert-name">Introducción a la Ciberseguridad</div>
+            <!-- 👉 Entidad que lo emitió -->
+            <div class="cert-org">INTECAP</div>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-badge">☕</div>
+          <div>
+            <div class="cert-name">Programación en Java (consola)</div>
+            <div class="cert-org">INTECAP</div>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-badge">📊</div>
+          <div>
+            <div class="cert-name">Microsoft Excel, Word y Windows</div>
+            <div class="cert-org">USAC</div>
+          </div>
+        </div>
+
+        <!-- ============================================================
+          👉 AGREGA MÁS CERTIFICACIONES AQUÍ
+        ============================================================ -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    SECCIÓN: CONTACTO
+  ============================================================ -->
+  <section id="contacto">
+    <div class="section-inner">
+      <p class="section-label">// 06. contacto</p>
+      <h2 class="section-title">¡Contac<span>tame!</span></h2>
+      <div class="contact-grid">
+
+        <div>
+          <!-- 👉 Texto introductorio de contacto -->
+          <p class="contact-intro">
+            Si te interesa mi perfil estoy abierto a nuevas oportunidades como desarrollador junior. Disponible para proyectos, prácticas o colaboraciones.
+            No dudes en escribirme.
+          </p>
+
+          <div class="contact-cards">
+
+            <!-- ============================================================
+              👉 ACTUALIZA EL CORREO en href y en el texto visible
+            ============================================================ -->
+            <a href="https://mail.google.com/mail/?view=cm&to=antonyaquino444@gmail.com&su=¡Hola Steven! Me interesa tu perfil&body=Hola Steven, me interesa contactarte porque..." target="_blank" class="contact-card">
+              <div class="contact-ico">✉️</div>
+              <div>
+                <div class="contact-label">EMAIL</div>
+                <div class="contact-value">antonyaquino444@gmail.com</div>
+              </div>
+            </a>
+
+            <!-- ============================================================
+              👉 ACTUALIZA EL TELÉFONO en href (+502XXXXXXXX sin espacios) y en texto
+            ============================================================ -->
+            <a href="tel:+50252658783" class="contact-card">
+              <div class="contact-ico">📱</div>
+              <div>
+                <div class="contact-label">TELÉFONO</div>
+                <div class="contact-value">+502 5265 8783</div>
+              </div>
+            </a>
+
+            <!-- ============================================================
+              👉 ACTUALIZA TU UBICACIÓN
+            ============================================================ -->
+            <div class="contact-card">
+              <div class="contact-ico">📍</div>
+              <div>
+                <div class="contact-label">UBICACIÓN</div>
+                <div class="contact-value">Chimaltenango, Guatemala (Disponible para home office) </div>
+              </div>
+            </div>
+            
+            <!--Remoto  -->
+          <a href="https://github.com/AntonyAquino" class="contact-card" target="_blank">
+                <div class="contact-ico">💼</div>
+                <div>
+                  <div class="contact-label">GitHub</div>
+                  <div class="contact-value">/AntonyAquino</div>
+                </div>
+              </a>
+
+
+            <!-- ============================================================
+              👉 OPCIONAL: Agrega LinkedIn o GitHub descomentando esto:
+              <a href="https://linkedin.com/in/TU-USUARIO" class="contact-card" target="_blank">
+                <div class="contact-ico">💼</div>
+                <div>
+                  <div class="contact-label">LINKEDIN</div>
+                  <div class="contact-value">linkedin.com/in/TU-USUARIO</div>
+                </div>
+              </a>
+            ============================================================ -->
+
+          </div>
+        </div>
+
+        <!-- Formulario de contacto -->
+        <div class="contact-form-box">
+          <p class="sublabel-mono">Enviar mensaje</p>
+          <form action="https://api.web3forms.com/submit" method="POST" class="form-stack">
+  <input type="hidden" name="access_key" value="e907c03b-52a8-4b68-8542-f600548f5d71">
+  <input type="text"  name="name"    placeholder="Tu nombre"    class="form-input" required>
+  <input type="email" name="email"   placeholder="Tu email"     class="form-input" required>
+  <textarea           name="message" placeholder="Tu mensaje..." rows="4" class="form-input" required></textarea>
+  <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+</form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <!-- ============================================================
+      👉 ACTUALIZA EL AÑO Y TU NOMBRE EN EL FOOTER
+    ============================================================ -->
+    <div class="footer-copy">© 2026 Steven A. Herrarte Aquino — Todos los derechos reservados.</div>
+    <div class="footer-tag">👓</div>
+  </footer>
+
+  <!-- Archivo de JavaScript externo -->
+  <script src="main.js"></script>
+
+</body>
+</html>

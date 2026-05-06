@@ -1,166 +1,201 @@
-
-const burger     = document.querySelector('.nav-burger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-if (burger && mobileMenu) {
-  burger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
+/* ═══════════════════════════════════════════════════════════
+   main.js — Portfolio Steven Herrarte
+═══════════════════════════════════════════════════════════ */
 
 
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-    });
-  });
+/* ───────────────────────────────────────────
+   1. NAV — scroll sólido + menú móvil
+_______________________________________________ */
+const navMain  = document.getElementById('navMain');
+const burgerBtn = document.getElementById('burgerBtn');
+const mobMenu  = document.getElementById('mobMenu');
+
+window.addEventListener('scroll', () => {
+  navMain.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+if (burgerBtn) {
+  burgerBtn.addEventListener('click', () => mobMenu.classList.toggle('open'));
 }
 
+mobMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => mobMenu.classList.remove('open'));
+});
 
-const skillObserver = new IntersectionObserver((entries) => {
+
+/* ───────────────────────────────────────────
+   2. BARRAS DE SKILLS — animar al entrar en vista
+_______________________________________________ */
+const skillObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const fill = entry.target.querySelector('.skill-bar-fill');
-      if (fill) {
-  
-        const targetWidth = fill.style.width;
-        fill.style.width = '0';
-        requestAnimationFrame(() => {
-          setTimeout(() => { fill.style.width = targetWidth; }, 100);
-        });
-      }
-      skillObserver.unobserve(entry.target);
+    if (!entry.isIntersecting) return;
+    const bar = entry.target.querySelector('.sk-bar-fill');
+    if (bar) {
+      const targetWidth = bar.dataset.w + '%';
+      bar.style.width = '0';
+      requestAnimationFrame(() => {
+        setTimeout(() => { bar.style.width = targetWidth; }, 80);
+      });
     }
+    skillObserver.unobserve(entry.target);
   });
 }, { threshold: 0.3 });
 
-document.querySelectorAll('.skill-card').forEach(card => {
-  skillObserver.observe(card);
+document.querySelectorAll('.sk-card').forEach(card => skillObserver.observe(card));
+
+
+/* ───────────────────────────────────────────
+   3. TIMELINE — fade-in escalonado
+_______________________________________________ */
+const timelineObserver = new IntersectionObserver(entries => {
+  entries.forEach((entry, index) => {
+    if (!entry.isIntersecting) return;
+    setTimeout(() => entry.target.classList.add('visible'), index * 200);
+    timelineObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.tl-item').forEach(item => timelineObserver.observe(item));
+
+
+/* ───────────────────────────────────────────
+   4. FILTRO DE PROYECTOS
+_______________________________________________ */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projCards  = document.querySelectorAll('.proj-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cat = btn.dataset.cat;
+    projCards.forEach(card => {
+      const show = cat === 'all' || card.dataset.cat === cat;
+      if (show) {
+        card.classList.remove('hidden');
+        card.style.animation = 'fadeCardIn .35s ease forwards';
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
 });
 
 
-const timelineObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-  
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, i * 150);
-      timelineObserver.unobserve(entry.target);
-    }
+/* ───────────────────────────────────────────
+   5. CLIC EN TARJETA → ABRIR GITHUB
+_______________________________________________ */
+projCards.forEach(card => {
+  card.addEventListener('click', () => {
+    if (card.dataset.href) window.open(card.dataset.href, '_blank');
   });
-}, { threshold: 0.2 });
-
-document.querySelectorAll('.timeline-item').forEach(item => {
-  timelineObserver.observe(item);
 });
 
 
-const TU_CORREO = 'antonyaquino444@gmail.com'; // 👈 PON TU CORREO AQUÍ
+/* ───────────────────────────────────────────
+   6. NAV ACTIVO AL HACER SCROLL
+_______________________________________________ */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
 
-const sendBtn    = document.getElementById('sendBtn');
-const formName   = document.getElementById('formName');
-const formEmail  = document.getElementById('formEmail');
-const formMsg    = document.getElementById('formMessage');
-
-if (sendBtn) {
-  sendBtn.addEventListener('click', () => {
-    const name    = formName  ? formName.value.trim()  : '';
-    const email   = formEmail ? formEmail.value.trim() : '';
-    const message = formMsg   ? formMsg.value.trim()   : '';
-
-
-    if (!name || !email || !message) {
-   
-      [formName, formEmail, formMsg].forEach(field => {
-        if (field && !field.value.trim()) {
-          field.style.borderColor = '#ff4444';
-          field.addEventListener('input', () => {
-            field.style.borderColor = 'var(--border)';
-          }, { once: true });
-        }
-      });
-      showToast('Por favor completa todos los campos.', 'error');
-      return;
-    }
-
-  
-    const subject = encodeURIComponent(`Contacto desde tu portafolio — ${name}`);
-    const body    = encodeURIComponent(
-      `Hola Steven,\n\nMi nombre es ${name}.\nMi correo de respuesta: ${email}\n\n${message}\n\n— Enviado desde tu portafolio web`
-    );
-
-    window.location.href = `mailto:${TU_CORREO}?subject=${subject}&body=${body}`;
-
-  
-    if (formName)  formName.value  = '';
-    if (formEmail) formEmail.value = '';
-    if (formMsg)   formMsg.value   = '';
-
-    showToast('¡Abriendo tu cliente de correo!', 'success');
-  });
-}
-
-
-function showToast(text, type = 'success') {
-
-  const existing = document.querySelector('.toast-msg');
-  if (existing) existing.remove();
-
-  const toast = document.createElement('div');
-  toast.className = 'toast-msg';
-  toast.textContent = text;
-
-  Object.assign(toast.style, {
-    position:     'fixed',
-    bottom:       '2rem',
-    right:        '2rem',
-    background:   type === 'success' ? 'var(--accent)' : '#ff4444',
-    color:        '#080b0f',
-    fontFamily:   'var(--mono)',
-    fontSize:     '.8rem',
-    fontWeight:   '700',
-    padding:      '.75rem 1.5rem',
-    borderRadius: '6px',
-    zIndex:       '9999',
-    boxShadow:    '0 8px 24px rgba(0,0,0,.4)',
-    animation:    'toastIn .3s ease',
-    letterSpacing:'.05em',
-  });
-
-
-  if (!document.getElementById('toastStyle')) {
-    const style = document.createElement('style');
-    style.id = 'toastStyle';
-    style.textContent = `
-      @keyframes toastIn  { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
-      @keyframes toastOut { from { opacity:1; } to { opacity:0; transform:translateY(8px); } }
-    `;
-    document.head.appendChild(style);
-  }
-
-  document.body.appendChild(toast);
-
-  setTimeout(() => {
-    toast.style.animation = 'toastOut .3s ease forwards';
-    setTimeout(() => toast.remove(), 300);
-  }, 3000);
-}
-
-
-const sections  = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-links a');
-
-const sectionObserver = new IntersectionObserver((entries) => {
+const navObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const id = entry.target.getAttribute('id');
       navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === `#${id}`
-          ? 'var(--accent)'
-          : 'var(--muted)';
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
       });
     }
   });
 }, { threshold: 0.4 });
 
-sections.forEach(sec => sectionObserver.observe(sec));
+sections.forEach(s => navObserver.observe(s));
+
+
+/* ───────────────────────────────────────────
+   7. PARTÍCULAS FLOTANTES AMBIENTALES
+   Canvas ligero solo con ~18 puntos dorados
+_______________________________________________ */
+function initAmbientParticles() {
+  const sections = ['sobre', 'skills', 'experiencia', 'estudios', 'contacto'];
+  sections.forEach(id => {
+    const sec = document.getElementById(id);
+    if (!sec) return;
+
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText = `
+      position:absolute;top:0;left:0;width:100%;height:100%;
+      pointer-events:none;z-index:0;opacity:0.55;
+    `;
+    sec.style.position = 'relative';
+    sec.prepend(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let W, H, particles;
+
+    function resize() {
+      W = canvas.width  = sec.offsetWidth;
+      H = canvas.height = sec.offsetHeight;
+    }
+
+    function initParticles() {
+      const count = Math.floor(W / 120); // ~10–12 puntos
+      particles = Array.from({ length: count }, () => ({
+        x:  Math.random() * W,
+        y:  Math.random() * H,
+        r:  Math.random() * 1.4 + 0.4,
+        vx: (Math.random() - 0.5) * 0.18,
+        vy: (Math.random() - 0.5) * 0.14,
+        o:  Math.random() * 0.5 + 0.15,
+        pulse: Math.random() * Math.PI * 2
+      }));
+    }
+
+    function draw(ts) {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => {
+        p.pulse += 0.008;
+        const alpha = p.o + Math.sin(p.pulse) * 0.18;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(201,169,110,${alpha.toFixed(3)})`;
+        ctx.fill();
+
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = W;
+        if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H;
+        if (p.y > H) p.y = 0;
+      });
+      requestAnimationFrame(draw);
+    }
+
+    resize();
+    initParticles();
+    requestAnimationFrame(draw);
+    window.addEventListener('resize', () => { resize(); initParticles(); });
+  });
+}
+
+// Iniciar partículas después del load
+window.addEventListener('load', initAmbientParticles);
+
+
+/* ───────────────────────────────────────────
+   8. FADE-IN GENERAL DE SECCIONES
+_______________________________________________ */
+const sectionFadeObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('sec-visible');
+      sectionFadeObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.s-eyebrow, .s-title, .sobre-grid, .skills-grid, .timeline, .proj-grid, .edu-grid, .certs-grid, .contact-grid').forEach(el => {
+  el.classList.add('sec-fade');
+  sectionFadeObserver.observe(el);
+});

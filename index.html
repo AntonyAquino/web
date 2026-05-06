@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-  <title>Steven Aquino — Ingeniería en Sistemas</title>
-
-
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Archivo de estilos externo -->
+  <title>Steven Herrarte — Ingeniería en Sistemas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="main.js"></script>
 </head>
 <body>
 
-  <nav>
-    <div class="nav-logo">Estudiante</div>
-    <ul class="nav-links">
+  <!-- ═══════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════ -->
+  <nav id="navMain">
+    <div class="nav-logo">
+      <div class="nav-box">SH</div>
+      <span class="nav-name">Steven Herrarte</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero-new" class="active">Inicio</a></li>
       <li><a href="#sobre">Sobre mí</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experiencia">Experiencia</a></li>
@@ -26,13 +26,13 @@
       <li><a href="#estudios">Estudios</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
-  
-    <button class="nav-burger" aria-label="Abrir menú">&#9776;</button>
+    <a href="#contacto" class="nav-cta">Contáctame</a>
+    <button class="nav-burger" id="burgerBtn">☰</button>
   </nav>
 
-  <!-- Menú móvil desplegable -->
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="mob-menu" id="mobMenu">
     <ul>
+      <li><a href="#hero-new">Inicio</a></li>
       <li><a href="#sobre">Sobre mí</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experiencia">Experiencia</a></li>
@@ -43,296 +43,278 @@
   </div>
 
 
-  <section id="hero">
-    <div class="hero-bg-lines"></div>
-    <div class="hero-grid">
+  <!-- 
+       01 · HERO
+   -->
+  <section id="hero-new">
 
-      <!-- Columna izquierda: texto principal -->
-      <div class="hero-left">
+    <div class="hero-blobs">
+      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="g1" cx="60%" cy="20%" r="55%">
+            <stop offset="0%"   stop-color="#c9a96e" stop-opacity="0.60"/>
+            <stop offset="45%"  stop-color="#8b6c3a" stop-opacity="0.28"/>
+            <stop offset="100%" stop-color="#0e0e0e" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="g2" cx="75%" cy="68%" r="40%">
+            <stop offset="0%"   stop-color="#6b5128" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#0e0e0e" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="bf"><feGaussianBlur stdDeviation="2.5"/></filter>
+        </defs>
+        <g class="blob-1">
+          <ellipse cx="1080" cy="185" rx="330" ry="265" fill="url(#g1)" filter="url(#bf)" opacity="0.95"/>
+          <path d="M920 75 Q1110 15 1310 158 Q1430 275 1285 378 Q1105 458 922 338 Q782 238 920 75Z"
+            fill="none" stroke="rgba(201,169,110,0.18)" stroke-width="1"/>
+        </g>
+        <g class="blob-2">
+          <ellipse cx="250" cy="790" rx="360" ry="195" fill="#1a1a1a" opacity="0.97"/>
+          <path d="M0 705 Q105 622 305 662 Q485 702 525 802 Q482 900 195 900 Q0 900 0 822Z"
+            fill="#181818" opacity="0.92"/>
+        </g>
+        <g class="blob-1" style="animation-delay:-4s">
+          <ellipse cx="1210" cy="608" rx="175" ry="215" fill="url(#g2)" opacity="0.72"/>
+        </g>
+      </svg>
+    </div>
+    <div class="hero-grain"></div>
 
-       
-        <div class="hero-tag">Disponible para oportunidades</div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow fade-up">Disponible para oportunidades · Guatemala</div>
 
-    
-        <h1>Steven<br><span>Herrarte</span><br>Aquino</h1>
+      <h1 class="hero-h1 fade-up">
+        Construyo <em>sistemas</em><br>
+        <span class="h1-bold">que funcionan.</span>
+      </h1>
 
-        <p class="hero-desc">
-          Estudiante de Ingeniería en Sistemas con experiencia en entornos
-          administrativos, programación orientada a objetos y bases de datos SQL.
-          Comprometido con construir soluciones eficientes y escalables.
-        </p>
+      <p class="hero-sub fade-up">
+        Estudiante de Ingeniería en Sistemas con dominio en C#, .NET y SQL.
+        Experiencia en entornos bancarios y administrativos.
+        Orientado a resultados y listo para tu equipo.
+      </p>
 
-        <div class="hero-btns">
-          <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
-          <a href="#contacto" class="btn btn-outline">Contactar</a>
-        </div>
+      <div class="hero-btns fade-up">
+        <a href="#proyectos" class="btn-gold">Ver proyectos</a>
+        <a href="#contacto" class="btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Contáctame
+        </a>
       </div>
+    </div>
 
-      <!-- Columna derecha: tarjeta de información rápida -->
-      <div class="hero-visual">
-        <div class="hero-card">
-
-          <div class="status-dot">En busca de oportunidades — Guatemala</div>
-
-          <p class="card-sublabel">STACK TÉCNICO</p>
-
-
-          <div class="skill-chips">
-            <span class="chip accent">C#</span>
-            <span class="chip accent">SQL</span>
-            <span class="chip">C++</span>
-            <span class="chip">Java</span>
-            <span class="chip">HTML/CSS</span>  
-            <span class="chip">.NET</span>
-            <span class="chip">MySQL</span>
-            <span class="chip">Offimatica</span>
-            <span class="chip">Redes</span>
-          </div>
-
-          <div class="hero-card-footer">
-            <p class="card-sublabel">ESTADO ACTUAL</p>
-       
-            <p class="card-info">🎓 5to Semestre — Ing. Sistemas</p>
-            <p class="card-info muted">Universidad Mariano Gálvez - Guatemala</p>
-          </div>
-
-        </div>
+    <div class="hero-side-icons">
+      <div class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M12 2a10 10 0 0 1 0 20"/></svg>
       </div>
+      <div class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      </div>
+      <div class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+      </div>
+      <div class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+    </div>
+
+    <div class="hero-dots">
+      <div class="hero-dot"></div>
+      <div class="hero-dot active"></div>
+      <div class="hero-dot"></div>
+      <div class="hero-dot"></div>
     </div>
   </section>
 
 
-  <section id="sobre">
-    <div class="section-inner">
-      <p class="section-label">// 01. sobre mí</p>
-      <h2 class="section-title">¿Quién <span>soy</span>?</h2>
+  <!-- 
+       02 · SOBRE MÍ
+   -->
+  <section id="sobre" class="s-dark">
+    <div class="inner">
+      <div class="s-eyebrow">01 · sobre mí</div>
+      <h2 class="s-title">¿Quién <em>soy</em>?</h2>
 
       <div class="sobre-grid">
         <div>
           <div class="sobre-text">
-
-
-            <p>Tengo 20 años y soy estudiante de 5to semestre de Ingeniería en Sistemas en
-              la Universidad Mariano Gálvez de Guatemala. Mi formación me ha dado una base
-              sólida en programación, bases de datos y arquitectura de software.</p>
-
-            <p>He tenido experiencia práctica en entornos bancarios y administrativos, lo que
-              me ha dado perspectiva sobre cómo la tecnología resuelve problemas reales del
-              mundo empresarial.</p>
-
-            <p>Me caracterizo por mi responsabilidad, rapidez de aprendizaje y orientación a
-              resultados. Busco crecer profesionalmente en el área tecnológica, aportando
-              soluciones bien diseñadas y escalables.</p>
+            <p>Tengo 20 años y soy estudiante de 5to semestre de <strong>Ingeniería en Sistemas</strong> en la Universidad Mariano Gálvez de Guatemala. Mi formación me ha dado una base sólida en programación, bases de datos y arquitectura de software.</p>
+            <p>He tenido experiencia práctica en <strong>entornos bancarios y administrativos</strong>, lo que me ha dado perspectiva sobre cómo la tecnología resuelve problemas reales del mundo empresarial.</p>
+            <p>Me caracterizo por mi <strong>responsabilidad</strong>, rapidez de aprendizaje y orientación a resultados. Busco crecer profesionalmente en el área tecnológica, aportando soluciones bien diseñadas y escalables.</p>
           </div>
 
-
-          <div class="sobre-stats">
-            <div class="stat-box">
-              <div class="stat-num">5to</div>
-              <div class="stat-label">Semestre</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-num">20</div>        
-              <div class="stat-label">Años</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-num">2+</div>        
-              <div class="stat-label">Años exp.</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-num">3</div>         
-              <div class="stat-label">Certs.</div>
-            </div>
-          </div>
-
-          <!-- IDIOMAS -->
-          <div class="lang-bar">
-            <p class="lang-title">Idiomas</p>
-
-            <div class="lang-item">
-              <div class="lang-header">
-                <span class="lang-name">Español</span>
-                <span class="lang-level">Nativo </span>
-              </div>
-              <div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div>
-            </div>
-            <div class="lang-item">
-              <div class="lang-header">
-                <span class="lang-name">Inglés</span>
-                <span class="lang-level">Básico — A2</span>
-              </div>
-              <div class="bar-bg"><div class="bar-fill" style="width:35%"></div></div>
-            </div>
+          <div class="stats-row">
+            <div class="stat-box"><span class="stat-n">5to</span><span class="stat-l">Semestre</span></div>
+            <div class="stat-box"><span class="stat-n">20</span><span class="stat-l">Años</span></div>
+            <div class="stat-box"><span class="stat-n">2+</span><span class="stat-l">Años exp.</span></div>
+            <div class="stat-box"><span class="stat-n">3</span><span class="stat-l">Certs.</span></div>
           </div>
         </div>
 
-        <!-- Información de contacto lateral -->
         <div>
-          <p class="sublabel-mono">Información de contacto</p>
-          <ul class="info-list">
-       
-            <li><span class="icon">📍</span>Chimaltenango, Guatemala</li>
-            <li>
-              <span class="icon">✉️</span>
-              <!-- 👉 Cambia el correo en el href y en el texto -->
-              <a href="https://mail.google.com/mail/?view=cm&to=antonyaquino444@gmail.com&su=¡Hola Steven! Me interesa tu perfil&body=Hola Steven, me interesa contactarte porque...">antonyaquino444@gmail.com</a>
-      
-            </li>
-            <li>
-              <span class="icon">📱</span>
-              <!-- 👉 Cambia tu número de teléfono -->
-              +502 5265 8783
-            </li>
-            <li><span class="icon">🎓</span>Universidad Mariano Gálvez</li>
-            <li>
-                <span class="icon">💼</span>
-                <a href="https://github.com/AntonyAquino">GitHub</a>
-              </li>
+          <div class="info-card">
+            <div class="info-card-title">Información de contacto</div>
+            <div class="info-row"><span class="info-icon">📍</span>Chimaltenango, Guatemala</div>
+            <div class="info-row"><span class="info-icon">✉️</span><a href="mailto:antonyaquino444@gmail.com">antonyaquino444@gmail.com</a></div>
+            <div class="info-row"><span class="info-icon">📱</span>+502 5265 8783</div>
+            <div class="info-row"><span class="info-icon">🎓</span>Universidad Mariano Gálvez</div>
+            <div class="info-row"><span class="info-icon">💼</span><a href="https://github.com/AntonyAquino" target="_blank">github.com/AntonyAquino</a></div>
+          </div>
 
-            <!-- 
-               OPCIONAL: Agrega redes sociales :
-              <li>
-                <span class="icon">💼</span>
-                <a href="https://linkedin.com/in/TU-USUARIO">LinkedIn</a>
-              </li>
-              
-            ============================================================ -->
-          </ul>
+          <div class="lang-card">
+            <div class="info-card-title">Idiomas</div>
+            <div class="lang-row">
+              <span class="lang-n">Español</span>
+              <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+              <span class="lang-lv">Nativo</span>
+            </div>
+            <div class="lang-row">
+              <span class="lang-n">Inglés</span>
+              <div class="lang-bar"><div class="lang-fill" style="width:35%"></div></div>
+              <span class="lang-lv">B1</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
 
-  <section id="skills">
-    <div class="section-inner">
-      <p class="section-label">// 02. habilidades</p>
-      <h2 class="section-title">Conocimientos <span>Técnicos</span></h2>
+  <!-- 
+       03 · SKILLS
+   -->
+  <section id="skills" class="s-darker">
+    <div class="inner">
+      <div class="s-eyebrow">02 · habilidades</div>
+      <h2 class="s-title">Conocimientos <em>Técnicos</em></h2>
+
       <div class="skills-grid">
 
-        <!-- TARJETA DE SKILL — copia este bloque para agregar más -->
-        <div class="skill-card" data-level="72">
-          <div class="skill-icon">☕</div>
-          <div class="skill-name">Java</div>
-          <div class="skill-cat">Programación OOP</div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-bg">
-  
-              <div class="skill-bar-fill" style="width:60%"></div>
-            </div>
-          </div>
+        <div class="sk-card">
+          <div class="sk-icon">☕</div>
+          <div class="sk-name">Java</div>
+          <div class="sk-cat">Programación OOP</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="60"></div></div>
+          <div class="sk-pct">60%</div>
         </div>
 
-        <div class="skill-card" data-level="68">
-          <div class="skill-icon">🔷</div>
-          <div class="skill-name">C# / .NET</div>
-          <div class="skill-cat">Desarrollo de aplicaciones</div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
-          </div>
+        <div class="sk-card">
+          <div class="sk-icon">🔷</div>
+          <div class="sk-name">C# / .NET</div>
+          <div class="sk-cat">Desarrollo de aplicaciones</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="75"></div></div>
+          <div class="sk-pct">65%</div>
         </div>
 
-        <div class="skill-card" data-level="58">
-          <div class="skill-icon">⚙️</div>
-          <div class="skill-name">C++</div>
-          <div class="skill-cat">Programación de sistemas</div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
-          </div>
+        <div class="sk-card">
+          <div class="sk-icon">⚙️</div>
+          <div class="sk-name">C++</div>
+          <div class="sk-cat">Programación de sistemas</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="70"></div></div>
+          <div class="sk-pct">65%</div>
         </div>
 
-        <div class="skill-card" data-level="75">
-          <div class="skill-icon">🗄️</div>
-          <div class="skill-name">SQL / MySQL</div>
-          <div class="skill-cat">Bases de datos relacionales</div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
-          </div>
+        <div class="sk-card">
+          <div class="sk-icon">🗄️</div>
+          <div class="sk-name">SQL / MySQL</div>
+          <div class="sk-cat">Bases de datos relacionales</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="70"></div></div>
+          <div class="sk-pct">70%</div>
         </div>
 
-        <div class="skill-card" data-level="65">
-          <div class="skill-icon">🌐</div>
-          <div class="skill-name">HTML / CSS</div>
-          <div class="skill-cat">Desarrollo web front-end</div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div>
-          </div>
+        <div class="sk-card">
+          <div class="sk-icon">🌐</div>
+          <div class="sk-name">HTML / CSS</div>
+          <div class="sk-cat">Desarrollo web front-end</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="65"></div></div>
+          <div class="sk-pct">65%</div>
         </div>
 
-        <div class="skill-card" data-level="55">
-          <div class="skill-icon">🔌</div>
-          <div class="skill-name">Redes Básicas</div>
-          <div class="skill-cat">Infraestructura y conectividad</div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:55%"></div></div>
-          </div>
+        <div class="sk-card">
+          <div class="sk-icon">🔌</div>
+          <div class="sk-name">Redes Básicas</div>
+          <div class="sk-cat">Infraestructura y conectividad</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="55"></div></div>
+          <div class="sk-pct">55%</div>
         </div>
 
-        <div class="skill-card" data-level="80">
-          <div class="skill-icon">📊</div>
-          <div class="skill-name">Herramientas Ofimática</div>
-          <div class="skill-cat">Ofimática avanzada</div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
-          </div>
+        <div class="sk-card">
+          <div class="sk-icon">📊</div>
+          <div class="sk-name">Ofimática</div>
+          <div class="sk-cat">Herramientas avanzadas</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="80"></div></div>
+          <div class="sk-pct">80%</div>
         </div>
 
-        <div class="skill-card" data-level="85">
-          <div class="skill-icon">🪟</div>
-          <div class="skill-name">Windows</div>
-          <div class="skill-cat">Sistemas operativos</div>
-          <div class="skill-bar-wrap">
-            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
-          </div>
+        <div class="sk-card">
+          <div class="sk-icon">🪟</div>
+          <div class="sk-name">Windows</div>
+          <div class="sk-cat">Sistemas operativos</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="70"></div></div>
+          <div class="sk-pct">70%</div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section id="experiencia">
-    <div class="section-inner">
-      <p class="section-label">// 03. experiencia</p>
-      <h2 class="section-title">Trayectoria <span>Profesional</span></h2>
+
+  <!-- 
+       04 · EXPERIENCIA
+   -->
+  <section id="experiencia" class="s-dark">
+    <div class="inner">
+      <div class="s-eyebrow">03 · experiencia</div>
+      <h2 class="s-title">Trayectoria <em>Profesional</em></h2>
+
       <div class="timeline">
 
-        <!-- ITEM DE EXPERIENCIA -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-header">
-            <div>
-       
-              <div class="timeline-role">Asistente Administrativo</div>
-          
-              <div class="timeline-company">Salón de Belleza</div>
-            </div>
-  
-            <div class="timeline-date">2024 – 2025</div>
+        <div class="tl-item">
+          <div class="tl-line">
+            <div class="tl-dot"></div>
+            <div class="tl-connector"></div>
           </div>
-        
-          <ul class="timeline-list">
-            <li>Gestión de inventario físico y digital mediante Excel.</li>
-            <li>Control y validación de productos.</li>
-            <li>Registro de ventas y apoyo en control administrativo.</li>
-            <li>Apoyo con clientes en relacion a citas.</li>
-          </ul>
+          <div class="tl-body">
+            <div class="tl-head">
+              <div>
+                <div class="tl-role">Asistente Administrativo</div>
+                <div class="tl-co">Salón de Belleza</div>
+              </div>
+              <div class="tl-date">2024 – 2025</div>
+            </div>
+            <ul class="tl-list">
+              <li>Gestión de inventario físico y digital mediante Excel.</li>
+              <li>Control y validación de productos.</li>
+              <li>Registro de ventas y apoyo en control administrativo.</li>
+              <li>Apoyo con clientes en relación a citas.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-header">
-            <div>
-              <div class="timeline-role">Practicante Bancario</div>
-              <div class="timeline-company">Entidad Bancaria</div>
-            </div>
-            <div class="timeline-date">2023</div>
+        <div class="tl-item">
+          <div class="tl-line">
+            <div class="tl-dot"></div>
+            <div class="tl-connector"></div>
           </div>
-          <ul class="timeline-list">
-            <li>Atención al cliente en servicios financieros: cobro de remesas, depósitos, pagos y cheques.</li>
-            <li>Realización de cuadres de caja diarios.</li>
-            <li>Manejo de sistema bancario transaccional.</li>
-            <li>Organización y control de documentación financiera.</li>
-          </ul>
+          <div class="tl-body">
+            <div class="tl-head">
+              <div>
+                <div class="tl-role">Practicante Bancario</div>
+                <div class="tl-co">Entidad Bancaria</div>
+              </div>
+              <div class="tl-date">2023</div>
+            </div>
+            <ul class="tl-list">
+              <li>Atención al cliente en servicios financieros: cobro de remesas, depósitos, pagos y cheques.</li>
+              <li>Realización de cuadres de caja diarios.</li>
+              <li>Manejo de sistema bancario transaccional.</li>
+              <li>Organización y control de documentación financiera.</li>
+            </ul>
+          </div>
         </div>
 
       </div>
@@ -340,228 +322,229 @@
   </section>
 
 
-  <section id="proyectos">
-  <div class="section-inner">
-    <p class="section-label">// 04. proyectos</p>
-    <h2 class="section-title">Proyectos <span>Desarrollados</span></h2>
-    <div class="projects-grid">
+  <!-- 
+       05 · PROYECTOS
+   -->
+  <section id="proyectos" class="s-darker">
+    <div class="inner">
+      <div class="s-eyebrow">04 · proyectos</div>
+      <h2 class="s-title">Proyectos <em>Desarrollados</em></h2>
 
-      <a class="project-card" href="https://github.com/AntonyAquino/inventariogitt" target="_blank">
-        <div class="project-top">
-          <div class="project-icon">📦</div>
-          <div class="project-tech">
-            <span class="tech-tag">C#</span>
-            <span class="tech-tag">.NET</span>
-            <span class="tech-tag">SQL</span>
+      <!-- Filtros con dots de colores y pulso dorado -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-cat="all">Todos</button>
+        <button class="filter-btn" data-cat="backend">Backend</button>
+        <button class="filter-btn" data-cat="frontend">Frontend</button>
+        <button class="filter-btn" data-cat="bd">Base de Datos</button>
+        <button class="filter-btn" data-cat="ciberseguridad">Ciberseguridad</button>
+        <button class="filter-btn" data-cat="tools">Herramientas</button>
+      </div>
+
+      <div class="proj-grid" id="projGrid">
+
+        <div class="proj-card" data-cat="backend" data-href="https://github.com/AntonyAquino/inventariogitt">
+          <div class="proj-img-wrap">
+            <img src="c:\Users\ESTUARDO\Downloads\pagestevenbeta\Crudimagen.png" alt="Sistema de Inventario" class="proj-img"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="proj-img-fallback">
+              <span class="fallback-icon">📦</span>
+              <span>Sistema de Inventario</span>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-cat-tag">Backend · Escritorio</div>
+            <div class="proj-name">Sistema de Inventario</div>
+            <p class="proj-desc">Aplicación de escritorio para gestión de inventario con C# y .NET, conectada a base de datos SQL. Incluye control de productos, stock y reportes.</p>
+            <div class="proj-footer">
+              <div class="proj-tags">
+                <span class="ptag">C#</span>
+                <span class="ptag">.NET</span>
+                <span class="ptag">SQL</span>
+              </div>
+              <span class="proj-link">Ver en GitHub →</span>
+            </div>
           </div>
         </div>
-        <div class="project-name">Sistema de Inventario</div>
-        <div class="project-desc">
-          Aplicación de escritorio para gestión de inventario con C# y .NET,
-          conectada a base de datos SQL. Incluye control de productos, stock y reportes.
-        </div>
-      </a>
 
-      <a class="project-card" href="https://github.com/AntonyAquino/viajes" target="_blank">
-        <div class="project-top">
-          <div class="project-icon">✈️</div>
-          <div class="project-tech">
-            <span class="tech-tag">C#</span>
-            <span class="tech-tag">.NET</span>
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">WinForms</span>
+        <div class="proj-card" data-cat="bd" data-href="https://github.com/AntonyAquino/viajes">
+          <div class="proj-img-wrap">
+            <img src="c:\Users\ESTUARDO\Downloads\pagestevenbeta\viajesimagen.png" alt="Bitácora de Viajes" class="proj-img"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="proj-img-fallback">
+              <span class="fallback-icon">✈️</span>
+              <span>Bitácora de Viajes</span>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-cat-tag">Base de Datos · CRUD</div>
+            <div class="proj-name">Bitácora de Viajes</div>
+            <p class="proj-desc">App de escritorio para registrar y gestionar viajes. CRUD completo con MySQL: guardar, editar y eliminar registros con lugar, fecha y costo.</p>
+            <div class="proj-footer">
+              <div class="proj-tags">
+                <span class="ptag">C#</span>
+                <span class="ptag">WinForms</span>
+                <span class="ptag">MySQL</span>
+              </div>
+              <span class="proj-link">Ver en GitHub →</span>
+            </div>
           </div>
         </div>
-        <div class="project-name">Bitácora de Viajes</div>
-        <div class="project-desc">
-          Aplicación de escritorio para registrar y gestionar viajes visitados.
-          Permite guardar, editar y eliminar registros con lugar, fecha y costo.
-          Primer proyecto académico implementando CRUD completo con MySQL.
-        </div>
-      </a>
 
-      <a class="project-card" href="https://github.com/AntonyAquino/reportsForm" target="_blank">
-        <div class="project-top">
-          <div class="project-icon">🛒</div>
-          <div class="project-tech">
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">SQL</span>
-            <span class="tech-tag">WinForms</span>
-            <span class="tech-tag">Excel</span>
+        <div class="proj-card" data-cat="tools" data-href="https://github.com/AntonyAquino/reportsForm">
+          <div class="proj-img-wrap">
+            <img src="c:\Users\ESTUARDO\Downloads\pagestevenbeta\excelimagen.png" alt="Reportes de Ventas" class="proj-img"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="proj-img-fallback">
+              <span class="fallback-icon">🛒</span>
+              <span>Reportes de Ventas</span>
+            </div>
           </div>
-        </div>
-        <div class="project-name">Sistema de reportes de ventas</div>
-        <div class="project-desc">
-          Sistema de reportes de ventas en C# WinForms con MySQL. Genera reportes dinámicos
-           de productos más vendidos, ingresos y ventas por día, con exportación directa a Excel 
-          usando ClosedXML.
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-
-  <section id="estudios">
-    <div class="section-inner">
-      <p class="section-label">// 05. estudios</p>
-      <h2 class="section-title">Formación <span>Académica</span></h2>
-
-      <div class="edu-grid">
-
-        <!-- TARJETA DE EDUCACIÓN -->
-        <div class="edu-card">
-          <div class="edu-type">🎓 Educación Superior</div>
-         
-          <div class="edu-title">Ingeniería en Sistemas</div>
-    
-          <div class="edu-status">5to Semestre — En curso</div>
-        
-          <div class="edu-inst">Universidad Mariano Gálvez de Guatemala</div>
-       
-          <div class="edu-date">Feb. 2024 – Actualmente</div>
-        </div>
-
-        <div class="edu-card">
-          <div class="edu-type">📚 Educación Media</div>
-          <div class="edu-title">Bachillerato en Ciencias y Letras</div>
-          <div class="edu-status">Con orientación en Computación</div>
-          <div class="edu-inst">Liceo Preuniversitario del Sur</div>
-          <div class="edu-date">Ene. 2022 – Oct. 2023</div>
+          <div class="proj-body">
+            <div class="proj-cat-tag">Herramientas · Reportes</div>
+            <div class="proj-name">Sistema de Reportes de Ventas</div>
+            <p class="proj-desc">Genera reportes dinámicos de productos más vendidos, ingresos y ventas por día. Exportación directa a Excel usando ClosedXML.</p>
+            <div class="proj-footer">
+              <div class="proj-tags">
+                <span class="ptag">MySQL</span>
+                <span class="ptag">WinForms</span>
+                <span class="ptag">Excel</span>
+              </div>
+              <span class="proj-link">Ver en GitHub →</span>
+            </div>
+          </div>
         </div>
 
       </div>
+    </div>
+  </section>
 
-      <!-- CERTIFICACIONES -->
-      <p class="sublabel-mono" style="margin-top:3.5rem;margin-bottom:1.25rem;">
-        Certificaciones y Cursos
-      </p>
+
+  <!--
+       06 · ESTUDIOS
+ -->
+  <section id="estudios" class="s-dark">
+    <div class="inner">
+      <div class="s-eyebrow">05 · estudios</div>
+      <h2 class="s-title">Formación <em>Académica</em></h2>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-num">01</div>
+          <div class="edu-icon">🎓</div>
+          <div class="edu-deg">Ingeniería en Sistemas</div>
+          <div class="edu-status">5to Semestre — En curso</div>
+          <div class="edu-inst">Universidad Mariano Gálvez de Guatemala</div>
+          <div class="edu-date">Feb. 2024 — Actualmente</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-num">02</div>
+          <div class="edu-icon">📚</div>
+          <div class="edu-deg">Bachillerato en Ciencias y Letras</div>
+          <div class="edu-status">Con orientación en Computación</div>
+          <div class="edu-inst">Liceo Preuniversitario del Sur</div>
+          <div class="edu-date">Ene. 2022 — Oct. 2023</div>
+        </div>
+      </div>
+
+      <div class="certs-label">Certificaciones y Cursos</div>
       <div class="certs-grid">
-
-        <div class="cert-item">
-          <div class="cert-badge">🔐</div>
+        <div class="cert-card">
+          <div class="cert-icon-box">🔐</div>
           <div>
- 
             <div class="cert-name">Introducción a la Ciberseguridad</div>
-
             <div class="cert-org">INTECAP</div>
           </div>
         </div>
-
-        <div class="cert-item">
-          <div class="cert-badge">☕</div>
+        <div class="cert-card">
+          <div class="cert-icon-box">☕</div>
           <div>
             <div class="cert-name">Programación en Java (consola)</div>
             <div class="cert-org">INTECAP</div>
           </div>
         </div>
-
-        <div class="cert-item">
-          <div class="cert-badge">📊</div>
+        <div class="cert-card">
+          <div class="cert-icon-box">📊</div>
           <div>
             <div class="cert-name">Microsoft Excel, Word y Windows</div>
             <div class="cert-org">USAC</div>
           </div>
         </div>
-
-
       </div>
     </div>
   </section>
 
 
-  <section id="contacto">
-    <div class="section-inner">
-      <p class="section-label">// 06. contacto</p>
-      <h2 class="section-title">¡Contac<span>tame!</span></h2>
+  <!-- ═══════════════════════════════════════
+       07 · CONTACTO
+  ═══════════════════════════════════════ -->
+  <section id="contacto" class="s-darker">
+    <div class="inner">
+      <div class="s-eyebrow">06 · contacto</div>
+      <h2 class="s-title">¡Contac<em>tame!</em></h2>
+
       <div class="contact-grid">
-
         <div>
-
           <p class="contact-intro">
-            Si te interesa mi perfil estoy abierto a nuevas oportunidades como desarrollador junior. Disponible para proyectos, prácticas o colaboraciones.
-            No dudes en escribirme.
+            Si te interesa mi perfil estoy abierto a nuevas oportunidades como desarrollador junior.
+            Disponible para proyectos, prácticas o colaboraciones. ¡No dudes en escribirme!
           </p>
-
           <div class="contact-cards">
-
-
-            <a href="https://mail.google.com/mail/?view=cm&to=antonyaquino444@gmail.com&su=¡Hola Steven! Me interesa tu perfil&body=Hola Steven, me interesa contactarte porque..." target="_blank" class="contact-card">
-              <div class="contact-ico">✉️</div>
+            <a href="mailto:antonyaquino444@gmail.com" class="contact-card">
+              <div class="cc-icon">✉️</div>
               <div>
-                <div class="contact-label">EMAIL</div>
-                <div class="contact-value">antonyaquino444@gmail.com</div>
+                <div class="cc-label">Email</div>
+                <div class="cc-val">antonyaquino444@gmail.com</div>
               </div>
             </a>
-
-
             <a href="tel:+50252658783" class="contact-card">
-              <div class="contact-ico">📱</div>
+              <div class="cc-icon">📱</div>
               <div>
-                <div class="contact-label">TELÉFONO</div>
-                <div class="contact-value">+502 5265 8783</div>
+                <div class="cc-label">Teléfono</div>
+                <div class="cc-val">+502 5265 8783</div>
               </div>
             </a>
-
-
             <div class="contact-card">
-              <div class="contact-ico">📍</div>
+              <div class="cc-icon">📍</div>
               <div>
-                <div class="contact-label">UBICACIÓN</div>
-                <div class="contact-value">Chimaltenango, Guatemala (Disponible para home office) </div>
+                <div class="cc-label">Ubicación</div>
+                <div class="cc-val">Chimaltenango · Home office disponible</div>
               </div>
             </div>
-            
-            <!--Remoto  -->
-          <a href="https://github.com/AntonyAquino" class="contact-card" target="_blank">
-                <div class="contact-ico">💼</div>
-                <div>
-                  <div class="contact-label">GitHub</div>
-                  <div class="contact-value">/AntonyAquino</div>
-                </div>
-              </a>
-
-
-            <!-- ============================================================
-               OPCIONAL: Agrega LinkedIn o GitHub:
-              <a href="https://linkedin.com/in/USUARIO" class="contact-card" target="_blank">
-                <div class="contact-ico">💼</div>
-                <div>
-                  <div class="contact-label">LINKEDIN</div>
-                  <div class="contact-value">linkedin.com/in/TU-USUARIO</div>
-                </div>
-              </a>
-            ============================================================ -->
-
+            <a href="https://github.com/AntonyAquino" target="_blank" class="contact-card">
+              <div class="cc-icon">💼</div>
+              <div>
+                <div class="cc-label">GitHub</div>
+                <div class="cc-val">github.com/AntonyAquino</div>
+              </div>
+            </a>
           </div>
         </div>
 
-        <!-- Formulario de contacto -->
-        <div class="contact-form-box">
-          <p class="sublabel-mono">Enviar mensaje</p>
+        <div class="form-wrap">
+          <span class="form-title">Enviar mensaje</span>
           <form action="https://api.web3forms.com/submit" method="POST" class="form-stack">
-  <input type="hidden" name="access_key" value="e907c03b-52a8-4b68-8542-f600548f5d71">
-  <input type="text"  name="name"    placeholder="Tu nombre"    class="form-input" required>
-  <input type="email" name="email"   placeholder="Tu email"     class="form-input" required>
-  <textarea           name="message" placeholder="Tu mensaje..." rows="4" class="form-input" required></textarea>
-  <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-</form>
+            <input type="hidden" name="access_key" value="e907c03b-52a8-4b68-8542-f600548f5d71">
+            <input  type="text"  name="name"    placeholder="Tu nombre"    class="fi" required>
+            <input  type="email" name="email"   placeholder="Tu email"     class="fi" required>
+            <textarea            name="message" placeholder="Tu mensaje..." rows="5" class="fi" required></textarea>
+            <button type="submit" class="btn-gold" style="align-self:flex-start">
+              Enviar mensaje →
+            </button>
+          </form>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
 
-    <div class="footer-copy">© 2026 Steven A. Herrarte Aquino — Todos los derechos reservados.</div>
-    <div class="footer-tag">👓</div>
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer>
+    <div class="footer-copy">© 2026 Steven A. Herrarte Aquino — .</div>
+    <div class="footer-brand">Steven Aquino.</div>
   </footer>
 
-
   <script src="main.js"></script>
-
 </body>
 </html>

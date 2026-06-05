@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steven Herrarte — Ingeniería en Sistemas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════ -->
+  <nav id="navMain">
+    <div class="nav-logo">
+      <div class="nav-box">AQ</div>
+      <span class="nav-name">Antony Aquno</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero-new" class="active">Inicio</a></li>
+      <li><a href="#sobre">Sobre mí</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#estudios">Estudios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta">Contáctame</a>
+    <button class="nav-burger" id="burgerBtn">☰</button>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <ul>
+      <li><a href="#hero-new">Inicio</a></li>
+      <li><a href="#sobre">Sobre mí</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#estudios">Estudios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       01 · HERO
+  ═══════════════════════════════════════ -->
+  <section id="hero-new">
+
+    <div class="hero-blobs">
+      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="g1" cx="60%" cy="20%" r="55%">
+            <stop offset="0%"   stop-color="#c9a96e" stop-opacity="0.60"/>
+            <stop offset="45%"  stop-color="#8b6c3a" stop-opacity="0.28"/>
+            <stop offset="100%" stop-color="#0e0e0e" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="g2" cx="75%" cy="68%" r="40%">
+            <stop offset="0%"   stop-color="#6b5128" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#0e0e0e" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="bf"><feGaussianBlur stdDeviation="2.5"/></filter>
+        </defs>
+        <g class="blob-1">
+          <ellipse cx="1080" cy="185" rx="330" ry="265" fill="url(#g1)" filter="url(#bf)" opacity="0.95"/>
+          <path d="M920 75 Q1110 15 1310 158 Q1430 275 1285 378 Q1105 458 922 338 Q782 238 920 75Z"
+            fill="none" stroke="rgba(201,169,110,0.18)" stroke-width="1"/>
+        </g>
+        <g class="blob-2">
+          <ellipse cx="250" cy="790" rx="360" ry="195" fill="#1a1a1a" opacity="0.97"/>
+          <path d="M0 705 Q105 622 305 662 Q485 702 525 802 Q482 900 195 900 Q0 900 0 822Z"
+            fill="#181818" opacity="0.92"/>
+        </g>
+        <g class="blob-1" style="animation-delay:-4s">
+          <ellipse cx="1210" cy="608" rx="175" ry="215" fill="url(#g2)" opacity="0.72"/>
+        </g>
+      </svg>
+    </div>
+    <div class="hero-grain"></div>
+
+    <!-- Escena 3D flotante -->
+    <div class="hero-3d-scene" id="hero3dScene" aria-hidden="true">
+      <div class="perspective-grid"></div>
+      <div class="float-shape shape-cube">
+        <div class="cube">
+          <div class="cube-face front"></div>
+          <div class="cube-face back"></div>
+          <div class="cube-face right"></div>
+          <div class="cube-face left"></div>
+          <div class="cube-face top"></div>
+          <div class="cube-face bottom"></div>
+        </div>
+      </div>
+      <div class="float-shape shape-ring">
+        <div class="ring-3d"></div>
+      </div>
+      <div class="float-shape shape-orb orb-1"></div>
+      <div class="float-shape shape-orb orb-2"></div>
+      <div class="float-shape shape-orb orb-3"></div>
+      <div class="float-shape shape-diamond">
+        <div class="diamond-3d"></div>
+      </div>
+      <div class="float-shape shape-code">&lt;/&gt;</div>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-eyebrow fade-up">Disponible para oportunidades · Guatemala</div>
+
+      <h1 class="hero-h1 fade-up" id="heroTitle">
+        <span class="h1-layer">Construyo <em>sistemas</em><br>
+        <span class="h1-bold">que funcionan.</span></span>
+      </h1>
+
+      <p class="hero-sub fade-up">
+        Estudiante de Ingeniería en Sistemas con dominio en C#, .NET y SQL.
+        Experiencia en entornos bancarios y administrativos.
+        Orientado a resultados y listo para tu equipo.
+      </p>
+
+      <div class="hero-btns fade-up">
+        <a href="#proyectos" class="btn-gold">Ver proyectos</a>
+        <a href="#contacto" class="btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Contáctame
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-side-icons">
+      <div class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M12 2a10 10 0 0 1 0 20"/></svg>
+      </div>
+      <div class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      </div>
+      <div class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+      </div>
+      <div class="side-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+    </div>
+
+    <div class="hero-dots">
+      <div class="hero-dot"></div>
+      <div class="hero-dot active"></div>
+      <div class="hero-dot"></div>
+      <div class="hero-dot"></div>
+    </div>
+
+    <div class="scroll-indicator fade-up" aria-hidden="true">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       02 · SOBRE MÍ
+  ═══════════════════════════════════════ -->
+  <section id="sobre" class="s-dark">
+    <div class="section-3d-deco deco-ring" aria-hidden="true"></div>
+    <div class="inner">
+      <div class="s-eyebrow">01 · sobre mí</div>
+      <h2 class="s-title">¿Quién <em>soy</em>?</h2>
+
+      <div class="sobre-grid">
+        <div>
+          <div class="sobre-text">
+            <p>Tengo 20 años y soy estudiante de 5to semestre de <strong>Ingeniería en Sistemas</strong> en la Universidad Mariano Gálvez de Guatemala. Mi formación me ha dado una base sólida en programación, bases de datos y arquitectura de software.</p>
+            <p>He tenido experiencia práctica en <strong>entornos bancarios y administrativos</strong>, lo que me ha dado perspectiva sobre cómo la tecnología resuelve problemas reales del mundo empresarial.</p>
+            <p>Me caracterizo por mi <strong>responsabilidad</strong>, rapidez de aprendizaje y orientación a resultados. Busco crecer profesionalmente en el área tecnológica, aportando soluciones bien diseñadas y escalables.</p>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-box"><span class="stat-n">5to</span><span class="stat-l">Semestre</span></div>
+            <div class="stat-box"><span class="stat-n">20</span><span class="stat-l">Años</span></div>
+            <div class="stat-box"><span class="stat-n">2+</span><span class="stat-l">Años exp.</span></div>
+            <div class="stat-box"><span class="stat-n">3</span><span class="stat-l">Certs.</span></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="info-card">
+            <div class="info-card-title">Información de contacto</div>
+            <div class="info-row"><span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Chimaltenango, Guatemala</div>
+            <div class="info-row"><span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><a href="mailto:antonyaquino444@gmail.com">antonyaquino444@gmail.com</a></div>
+            <div class="info-row"><span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>+502 5265 8783</div>
+            <div class="info-row"><span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-6 10 6-10 6z"/><path d="M6 12v5c0 2 2.5 4 6 4s6-2 6-4v-5"/></svg></span>Universidad Mariano Gálvez</div>
+            <div class="info-row"><span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></span><a href="https://github.com/AntonyAquino" target="_blank">github.com/AntonyAquino</a></div>
+          </div>
+
+          <div class="lang-card">
+            <div class="info-card-title">Idiomas</div>
+            <div class="lang-row">
+              <span class="lang-n">Español</span>
+              <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+              <span class="lang-lv">Nativo</span>
+            </div>
+            <div class="lang-row">
+              <span class="lang-n">Inglés</span>
+              <div class="lang-bar"><div class="lang-fill" style="width:40%"></div></div>
+              <span class="lang-lv">B1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       03 · SKILLS
+  ═══════════════════════════════════════ -->
+  <section id="skills" class="s-darker">
+    <div class="section-3d-deco deco-cube" aria-hidden="true"></div>
+    <div class="inner">
+      <div class="s-eyebrow">02 · habilidades</div>
+      <h2 class="s-title">Conocimientos <em>Técnicos</em></h2>
+
+      <div class="skills-grid">
+
+        <div class="sk-card">
+          <div class="sk-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 6h8M8 10h8M8 14h5"/><path d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+            </svg>
+          </div>
+          <div class="sk-name">Java</div>
+          <div class="sk-cat">Programación OOP</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="60"></div></div>
+          <div class="sk-pct">60%</div>
+        </div>
+
+        <div class="sk-card">
+          <div class="sk-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="sk-name">C# / .NET</div>
+          <div class="sk-cat">Desarrollo de aplicaciones</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="75"></div></div>
+          <div class="sk-pct">75%</div>
+        </div>
+
+        <div class="sk-card">
+          <div class="sk-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
+            </svg>
+          </div>
+          <div class="sk-name">C++</div>
+          <div class="sk-cat">Programación de sistemas</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="70"></div></div>
+          <div class="sk-pct">70%</div>
+        </div>
+
+        <div class="sk-card">
+          <div class="sk-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+            </svg>
+          </div>
+          <div class="sk-name">SQL / MySQL</div>
+          <div class="sk-cat">Bases de datos relacionales</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="70"></div></div>
+          <div class="sk-pct">70%</div>
+        </div>
+
+        <div class="sk-card">
+          <div class="sk-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <div class="sk-name">HTML / CSS</div>
+          <div class="sk-cat">Desarrollo web front-end</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="65"></div></div>
+          <div class="sk-pct">65%</div>
+        </div>
+
+        <div class="sk-card">
+          <div class="sk-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+            </svg>
+          </div>
+          <div class="sk-name">Redes Básicas</div>
+          <div class="sk-cat">Infraestructura y conectividad</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="55"></div></div>
+          <div class="sk-pct">55%</div>
+        </div>
+
+        <div class="sk-card">
+          <div class="sk-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+            </svg>
+          </div>
+          <div class="sk-name">Ofimática</div>
+          <div class="sk-cat">Herramientas avanzadas</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="80"></div></div>
+          <div class="sk-pct">80%</div>
+        </div>
+
+        <div class="sk-card">
+          <div class="sk-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+              <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H9v8H3V5.5zm0 13A2.5 2.5 0 0 0 5.5 21H9v-8H3v5.5zM15 3h3.5A2.5 2.5 0 0 1 21 5.5V11h-6V3zm0 18h3.5a2.5 2.5 0 0 0 2.5-2.5V13h-6v8z"/>
+            </svg>
+          </div>
+          <div class="sk-name">Windows</div>
+          <div class="sk-cat">Sistemas operativos</div>
+          <div class="sk-bar-bg"><div class="sk-bar-fill" data-w="70"></div></div>
+          <div class="sk-pct">70%</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       04 · EXPERIENCIA
+  ═══════════════════════════════════════ -->
+  <section id="experiencia" class="s-dark">
+    <div class="inner">
+      <div class="s-eyebrow">03 · experiencia</div>
+      <h2 class="s-title">Trayectoria <em>Profesional</em></h2>
+
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-line">
+            <div class="tl-dot"></div>
+            <div class="tl-connector"></div>
+          </div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <div>
+                <div class="tl-role">Asistente Administrativo</div>
+                <div class="tl-co">Salón de Belleza</div>
+              </div>
+              <div class="tl-date">2024 – 2025</div>
+            </div>
+            <ul class="tl-list">
+              <li>Gestión de inventario físico y digital mediante Excel.</li>
+              <li>Control y validación de productos.</li>
+              <li>Registro de ventas y apoyo en control administrativo.</li>
+              <li>Apoyo con clientes en relación a citas.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-line">
+            <div class="tl-dot"></div>
+            <div class="tl-connector"></div>
+          </div>
+          <div class="tl-body">
+            <div class="tl-head">
+              <div>
+                <div class="tl-role">Practicante Bancario</div>
+                <div class="tl-co">Entidad Bancaria</div>
+              </div>
+              <div class="tl-date">2023</div>
+            </div>
+            <ul class="tl-list">
+              <li>Atención al cliente en servicios financieros: cobro de remesas, depósitos, pagos y cheques.</li>
+              <li>Realización de cuadres de caja diarios.</li>
+              <li>Manejo de sistema bancario transaccional.</li>
+              <li>Organización y control de documentación financiera.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       05 · PROYECTOS
+  ═══════════════════════════════════════ -->
+  <section id="proyectos" class="s-darker">
+    <div class="section-3d-deco deco-orb" aria-hidden="true"></div>
+    <div class="inner">
+      <div class="s-eyebrow">04 · proyectos</div>
+      <h2 class="s-title">Proyectos <em>Desarrollados</em></h2>
+
+      <!-- Filtros con dots de colores y pulso dorado -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-cat="all">Todos</button>
+        <button class="filter-btn" data-cat="backend">Backend</button>
+        <button class="filter-btn" data-cat="frontend">Frontend</button>
+        <button class="filter-btn" data-cat="bd">Base de Datos</button>
+        <button class="filter-btn" data-cat="ciberseguridad">Ciberseguridad</button>
+        <button class="filter-btn" data-cat="tools">Herramientas</button>
+      </div>
+
+      <div class="proj-showcase" id="projShowcase">
+        <div class="proj-showcase-bg" aria-hidden="true">
+          <div class="proj-showcase-glow"></div>
+          <div class="proj-showcase-floor"></div>
+        </div>
+
+        <div class="proj-carousel-wrap">
+          <button type="button" class="proj-nav proj-nav--prev" id="projPrev" aria-label="Proyecto anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+
+          <div class="proj-carousel-3d" id="projCarousel">
+            <div class="proj-carousel-track" id="projTrack">
+
+        <div class="proj-card" data-cat="backend bd" data-href="https://github.com/AntonyAquino/inventariogitt">
+          <div class="proj-img-wrap">
+            <img src="Crudimagen.png" alt="Sistema de Inventario" class="proj-img"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="proj-img-fallback">
+              <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+              <span>Sistema de Inventario</span>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-cat-tag">Backend · Base de Datos · Escritorio</div>
+            <div class="proj-name">Sistema de Inventario</div>
+            <p class="proj-desc">Aplicación de escritorio para gestión de inventario con C# y .NET, conectada a base de datos SQL. Incluye control de productos, stock y reportes.</p>
+            <div class="proj-footer">
+              <div class="proj-tags">
+                <span class="ptag">C#</span>
+                <span class="ptag">.NET</span>
+                <span class="ptag">SQL</span>
+              </div>
+              <span class="proj-link">Ver en GitHub →</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card" data-cat="backend bd" data-href="https://github.com/AntonyAquino/viajes">
+          <div class="proj-img-wrap">
+            <img src="viajesimagen.png" alt="Bitácora de Viajes" class="proj-img"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="proj-img-fallback">
+              <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
+              <span>Bitácora de Viajes</span>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-cat-tag">Backend · Base de Datos · CRUD</div>
+            <div class="proj-name">Bitácora de Viajes</div>
+            <p class="proj-desc">App de escritorio para registrar y gestionar viajes. CRUD completo con MySQL: guardar, editar y eliminar registros con lugar, fecha y costo.</p>
+            <div class="proj-footer">
+              <div class="proj-tags">
+                <span class="ptag">C#</span>
+                <span class="ptag">WinForms</span>
+                <span class="ptag">MySQL</span>
+              </div>
+              <span class="proj-link">Ver en GitHub →</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card" data-cat="backend bd tools" data-href="https://github.com/AntonyAquino/reportsForm">
+          <div class="proj-img-wrap">
+            <img src="excelimagen.png" alt="Reportes de Ventas" class="proj-img"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="proj-img-fallback">
+              <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+              <span>Reportes de Ventas</span>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-cat-tag">Backend · Base de Datos · Herramientas</div>
+            <div class="proj-name">Sistema de Reportes de Ventas</div>
+            <p class="proj-desc">Genera reportes dinámicos de productos más vendidos, ingresos y ventas por día. Exportación directa a Excel usando ClosedXML.</p>
+            <div class="proj-footer">
+              <div class="proj-tags">
+                <span class="ptag">MySQL</span>
+                <span class="ptag">WinForms</span>
+                <span class="ptag">Excel</span>
+              </div>
+              <span class="proj-link">Ver en GitHub →</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card" data-cat="frontend backend bd ciberseguridad tools" data-href="https://skillu.vercel.app">
+          <div class="proj-img-wrap">
+            <img src="skilluimagen.png" alt="SkillU — Plataforma universitaria" class="proj-img"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="proj-img-fallback">
+              <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+              <span>SkillU</span>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-cat-tag">Frontend · Backend · Base de Datos · Ciberseguridad</div>
+            <div class="proj-name">SkillU</div>
+            <p class="proj-desc">Marketplace universitario guatemalteco que conecta estudiantes verificados con personas que buscan tutorías, desarrollo web y servicios especializados. Landing con diseño oscuro, efectos 3D y despliegue en Vercel.</p>
+            <div class="proj-footer">
+              <div class="proj-tags">
+                <span class="ptag">HTML</span>
+                <span class="ptag">CSS</span>
+                <span class="ptag">Vercel</span>
+              </div>
+              <span class="proj-link proj-link--web">Ver sitio →</span>
+            </div>
+          </div>
+        </div>
+
+            </div>
+          </div>
+
+          <button type="button" class="proj-nav proj-nav--next" id="projNext" aria-label="Proyecto siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+        <div class="proj-carousel-dots" id="projDots" role="tablist" aria-label="Proyectos"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       06 · ESTUDIOS
+  ═══════════════════════════════════════ -->
+  <section id="estudios" class="s-dark">
+    <div class="inner">
+      <div class="s-eyebrow">05 · estudios</div>
+      <h2 class="s-title">Formación <em>Académica</em></h2>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-num">01</div>
+          <div class="edu-icon ico-box ico-box--md" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-6 10 6-10 6z"/><path d="M6 12v5c0 2 2.5 4 6 4s6-2 6-4v-5"/></svg>
+          </div>
+          <div class="edu-deg">Ingeniería en Sistemas</div>
+          <div class="edu-status">5to Semestre — En curso</div>
+          <div class="edu-inst">Universidad Mariano Gálvez de Guatemala</div>
+          <div class="edu-date">Feb. 2024 — Actualmente</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-num">02</div>
+          <div class="edu-icon ico-box ico-box--md" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div class="edu-deg">Bachillerato en Ciencias y Letras</div>
+          <div class="edu-status">Con orientación en Computación</div>
+          <div class="edu-inst">Liceo Preuniversitario del Sur</div>
+          <div class="edu-date">Ene. 2022 — Oct. 2023</div>
+        </div>
+      </div>
+
+      <div class="certs-label">Certificaciones y Cursos</div>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-icon-box ico-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div>
+            <div class="cert-name">Introducción a la Ciberseguridad</div>
+            <div class="cert-org">INTECAP</div>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon-box ico-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div>
+            <div class="cert-name">Programación en Java (consola)</div>
+            <div class="cert-org">INTECAP</div>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon-box ico-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <div>
+            <div class="cert-name">Microsoft Excel, Word y Windows</div>
+            <div class="cert-org">USAC</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       07 · CONTACTO
+  ═══════════════════════════════════════ -->
+  <section id="contacto" class="s-darker">
+    <div class="inner">
+      <div class="s-eyebrow">06 · contacto</div>
+      <h2 class="s-title">¡Contac<em>tame!</em></h2>
+
+      <div class="contact-grid">
+        <div>
+          <p class="contact-intro">
+            Si te interesa mi perfil estoy abierto a nuevas oportunidades como desarrollador junior.
+            Disponible para proyectos, prácticas o colaboraciones. ¡No dudes en escribirme!
+          </p>
+          <div class="contact-cards">
+            <a href="mailto:antonyaquino444@gmail.com" class="contact-card">
+              <div class="cc-icon ico-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <div class="cc-label">Email</div>
+                <div class="cc-val">antonyaquino444@gmail.com</div>
+              </div>
+            </a>
+            <a href="tel:+50252658783" class="contact-card">
+              <div class="cc-icon ico-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              </div>
+              <div>
+                <div class="cc-label">Teléfono</div>
+                <div class="cc-val">+502 5265 8783</div>
+              </div>
+            </a>
+            <div class="contact-card">
+              <div class="cc-icon ico-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="cc-label">Ubicación</div>
+                <div class="cc-val">Chimaltenango · Home office disponible</div>
+              </div>
+            </div>
+            <a href="https://github.com/AntonyAquino" target="_blank" class="contact-card">
+              <div class="cc-icon ico-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </div>
+              <div>
+                <div class="cc-label">GitHub</div>
+                <div class="cc-val">github.com/AntonyAquino</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="form-wrap">
+          <span class="form-title">Enviar mensaje</span>
+          <form action="https://api.web3forms.com/submit" method="POST" class="form-stack">
+            <input type="hidden" name="access_key" value="e907c03b-52a8-4b68-8542-f600548f5d71">
+            <input  type="text"  name="name"    placeholder="Tu nombre"    class="fi" required>
+            <input  type="email" name="email"   placeholder="Tu email"     class="fi" required>
+            <textarea            name="message" placeholder="Tu mensaje..." rows="5" class="fi" required></textarea>
+            <button type="submit" class="btn-gold" style="align-self:flex-start">
+              Enviar mensaje →
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer>
+    <div class="footer-copy">© 2026 Steven A. Herrarte Aquino — Todos los derechos reservados.</div>
+    <div class="footer-brand">Steven H.</div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

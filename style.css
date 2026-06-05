@@ -655,26 +655,28 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 .sk-card:hover::before { opacity: 1; }
 
 .sk-icon {
-  width: 46px; height: 46px;
+  width: 48px; height: 48px;
   border-radius: 12px;
-  background: var(--gold-soft);
-  border: 1px solid var(--gold-border);
-  display: flex; align-items: center; justify-content: center;
   margin-bottom: 1rem;
-  color: var(--gold);
-  transition: transform .4s cubic-bezier(.23, 1, .32, 1), box-shadow .4s ease, border-color .4s ease;
+  color: var(--gold-light);
+  background: rgba(201, 169, 110, 0.1);
+  border: 1px solid rgba(201, 169, 110, 0.35);
+  transition: transform .4s cubic-bezier(.23, 1, .32, 1), box-shadow .4s ease, border-color .4s ease, background .4s ease;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 .sk-icon svg {
-  width: 22px; height: 22px;
+  width: 20px; height: 20px;
   display: block;
   flex-shrink: 0;
+  stroke: var(--gold-light);
 }
+.sk-icon svg [fill="currentColor"] { fill: var(--gold-light); }
 .sk-card:hover .sk-icon {
-  transform: translateZ(20px) scale(1.08) rotateY(-8deg);
+  transform: translateZ(12px) scale(1.06);
   border-color: var(--gold);
-  box-shadow: 0 8px 24px rgba(201,169,110,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
+  background: rgba(201, 169, 110, 0.18);
+  box-shadow: 0 8px 28px rgba(201,169,110,0.22), inset 0 1px 0 rgba(255,255,255,0.1);
 }
 .sk-name { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.2rem; color: var(--text); }
 .sk-cat  { font-size: 0.7rem; color: var(--muted); font-weight: 300; margin-bottom: 1.35rem; }
@@ -792,10 +794,15 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 /* ═══════════════════════════════════════════════════════════
    PROYECTOS — CARRUSEL 3D COVERFLOW
 ═══════════════════════════════════════════════════════════ */
+#proyectos { overflow: visible; }
+#proyectos .inner { overflow: visible; }
+
 .proj-showcase {
   position: relative;
   margin-top: 0.5rem;
   padding: 1rem 0 0.5rem;
+  overflow: visible;
+  min-height: 560px;
 }
 .proj-showcase-bg {
   position: absolute; inset: 0 -1rem;
@@ -827,14 +834,18 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 }
 .proj-carousel-3d {
   flex: 1;
-  height: clamp(420px, 52vw, 520px);
+  min-height: 540px;
+  height: auto;
   perspective: 1400px;
-  perspective-origin: 50% 42%;
-  overflow: visible;
+  perspective-origin: 50% 45%;
+  overflow: hidden;
+  position: relative;
 }
 .proj-carousel-track {
   position: relative;
-  width: 100%; height: 100%;
+  width: 100%;
+  min-height: 540px;
+  height: 100%;
   transform-style: preserve-3d;
 }
 
@@ -885,15 +896,18 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 /* Tarjetas en coverflow 3D */
 .proj-card {
   position: absolute;
-  left: 50%; top: 50%;
-  width: min(400px, 78vw);
-  margin-left: calc(min(400px, 78vw) / -2);
-  margin-top: -210px;
+  left: 50%;
+  top: 50%;
+  width: min(380px, 92vw);
+  max-width: 380px;
+  margin-left: min(-190px, -46vw);
+  margin-top: -240px;
   background: var(--carbon3);
   border: 1px solid var(--border);
   border-radius: 20px;
   overflow: hidden;
-  display: flex; flex-direction: column;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
   transform-style: preserve-3d;
   backface-visibility: hidden;
@@ -903,7 +917,15 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
     box-shadow .55s ease,
     border-color .4s ease;
   box-shadow: 0 12px 40px rgba(0,0,0,0.35);
-  will-change: transform, opacity;
+  opacity: 0;
+  pointer-events: none;
+}
+/* Estado inicial sin JS */
+.proj-card[data-offset="99"] {
+  transform: translateX(0) translateZ(-250px) scale(0.5);
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 .proj-card::before {
   content: '';
@@ -915,8 +937,9 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 
 /* Posiciones coverflow por offset */
 .proj-card[data-offset="0"] {
-  transform: translateX(0) translateZ(100px) rotateY(0deg) scale(1);
+  transform: translateX(0) translateZ(80px) rotateY(0deg) scale(1);
   opacity: 1; z-index: 10;
+  pointer-events: auto;
   border-color: var(--gold-border);
   box-shadow:
     0 40px 80px rgba(0,0,0,0.55),
@@ -926,12 +949,14 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 .proj-card[data-offset="0"]::before { opacity: 1; }
 
 .proj-card[data-offset="-1"] {
-  transform: translateX(-58%) translateZ(-30px) rotateY(38deg) scale(0.86);
-  opacity: 0.72; z-index: 6;
+  transform: translateX(-62%) translateZ(-30px) rotateY(38deg) scale(0.84);
+  opacity: 0.55; z-index: 6;
+  pointer-events: auto;
 }
 .proj-card[data-offset="1"] {
-  transform: translateX(58%) translateZ(-30px) rotateY(-38deg) scale(0.86);
-  opacity: 0.72; z-index: 6;
+  transform: translateX(62%) translateZ(-30px) rotateY(-38deg) scale(0.84);
+  opacity: 0.55; z-index: 6;
+  pointer-events: auto;
 }
 .proj-card[data-offset="-2"] {
   transform: translateX(-95%) translateZ(-120px) rotateY(52deg) scale(0.72);
@@ -974,33 +999,32 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 .proj-img-wrap {
   width: 100%; height: 200px; overflow: hidden;
   background: var(--carbon4); position: relative;
-  transform-style: preserve-3d;
 }
-.proj-card[data-offset="0"] .proj-img-wrap { height: 220px; }
+.proj-card[data-offset="0"] .proj-img-wrap { height: 210px; }
 
 .proj-img-wrap::before {
   content: '';
   position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.4) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, transparent 35%, transparent 100%);
 }
 .proj-card[data-offset="0"] .proj-img-wrap::after {
   content: '';
-  position: absolute; top: 0; left: 0; width: 50%; height: 100%;
+  position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
   z-index: 3; pointer-events: none;
-  background: linear-gradient(105deg, transparent 25%, rgba(255,255,255,0.1) 50%, transparent 75%);
-  animation: projCinemaShine 4s ease-in-out infinite;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.08) 50%, transparent 70%);
+  animation: projCinemaShine 5s ease-in-out infinite;
 }
 
 .proj-img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  transition: transform .5s ease;
-}
-.proj-card[data-offset="0"] .proj-img {
-  animation: projKenBurns1 16s ease-in-out infinite alternate;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform .45s ease;
+  transform: scale(1.02);
 }
 .proj-card[data-offset="0"]:hover .proj-img {
-  animation-play-state: paused;
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1205,22 +1229,57 @@ footer { background: var(--carbon2); border-top: 1px solid var(--border); paddin
 }
 
 @media (max-width: 960px) {
+  .proj-showcase { min-height: 480px; }
   .proj-showcase-floor { opacity: 0.35; }
-  .proj-carousel-3d { height: 460px; perspective: 1000px; }
-  .proj-card { width: min(340px, 88vw); margin-left: calc(min(340px, 88vw) / -2); }
-  .proj-card[data-offset="-1"] { transform: translateX(-52%) translateZ(-20px) rotateY(32deg) scale(0.84); }
-  .proj-card[data-offset="1"]  { transform: translateX(52%) translateZ(-20px) rotateY(-32deg) scale(0.84); }
+  .proj-carousel-3d,
+  .proj-carousel-track { min-height: 460px; }
+  .proj-card {
+    width: min(340px, 94vw);
+    max-width: 340px;
+    margin-left: min(-170px, -47vw);
+    margin-top: -220px;
+  }
+  .proj-card[data-offset="-1"] { transform: translateX(-54%) translateZ(-20px) rotateY(32deg) scale(0.82); opacity: 0.45; }
+  .proj-card[data-offset="1"]  { transform: translateX(54%) translateZ(-20px) rotateY(-32deg) scale(0.82); opacity: 0.45; }
   .proj-card[data-offset="-2"],
   .proj-card[data-offset="2"]  { opacity: 0; pointer-events: none; }
   .proj-nav { width: 38px; height: 38px; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  .proj-showcase { min-height: auto; padding-bottom: 1rem; }
   .proj-showcase-glow { display: none; }
-  .proj-carousel-wrap { gap: 0.25rem; }
-  .proj-carousel-3d { height: 420px; }
-  .proj-card[data-offset="-1"],
-  .proj-card[data-offset="1"] { opacity: 0; pointer-events: none; }
+  .proj-carousel-wrap { gap: 0.35rem; }
+  .proj-carousel-3d,
+  .proj-carousel-track {
+    min-height: 0;
+    height: auto;
+    overflow: visible;
+    perspective: none;
+  }
+  .proj-card {
+    position: relative;
+    left: auto; top: auto;
+    width: 100%; max-width: 100%;
+    margin: 0;
+    opacity: 0;
+    transform: none !important;
+    pointer-events: none;
+    display: none;
+  }
+  .proj-card[data-offset="0"] {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+  }
+  .proj-card:not([data-offset="0"]) .proj-desc,
+  .proj-card:not([data-offset="0"]) .proj-footer { display: none; }
+  .proj-card[data-offset="0"] .proj-desc { display: block; }
+  .proj-card[data-offset="0"] .proj-footer { display: flex; }
+  .proj-card[data-offset="0"] .proj-body { padding: 1.6rem; }
+  .proj-card[data-offset="0"] .proj-img-wrap { height: 200px; }
   .filter-bar { gap: 0.4rem; }
   .filter-btn { font-size: 0.72rem; padding: 0.4rem 0.85rem; }
   .hero-dots  { display: none; }

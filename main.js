@@ -1,14 +1,14 @@
 /* ═══════════════════════════════════════════════════════════
-   main.js — Portfolio Steven Herrarte
+   main.js — Portfolio Antony Aquino
 ═══════════════════════════════════════════════════════════ */
 
 
 /* ───────────────────────────────────────────
    1. NAV — scroll sólido + menú móvil
 _______________________________________________ */
-const navMain  = document.getElementById('navMain');
+const navMain   = document.getElementById('navMain');
 const burgerBtn = document.getElementById('burgerBtn');
-const mobMenu  = document.getElementById('mobMenu');
+const mobMenu   = document.getElementById('mobMenu');
 
 window.addEventListener('scroll', () => {
   navMain.classList.toggle('scrolled', window.scrollY > 60);
@@ -59,7 +59,7 @@ document.querySelectorAll('.tl-item').forEach(item => timelineObserver.observe(i
 
 
 /* ───────────────────────────────────────────
-   4. CARRUSEL 3D DE PROYECTOS
+   4. CARRUSEL 3D DE PROYECTOS (CORREGIDO)
 _______________________________________________ */
 const filterBtns   = document.querySelectorAll('.filter-btn');
 const projCards    = document.querySelectorAll('.proj-card');
@@ -188,13 +188,18 @@ if (projShowcase) {
     if (Math.abs(diff) > 50) goProj(diff > 0 ? -1 : 1);
   }, { passive: true });
 
-  updateProjCarousel();
-  resetProjAuto();
+  /* FIX: doble rAF para asegurar que el DOM esté listo antes del primer render */
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      updateProjCarousel();
+      resetProjAuto();
+    });
+  });
 }
 
 
 /* ───────────────────────────────────────────
-   6. NAV ACTIVO AL HACER SCROLL
+   5. NAV ACTIVO AL HACER SCROLL
 _______________________________________________ */
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
@@ -214,12 +219,11 @@ sections.forEach(s => navObserver.observe(s));
 
 
 /* ───────────────────────────────────────────
-   7. PARTÍCULAS FLOTANTES AMBIENTALES
-   Canvas ligero solo con ~18 puntos dorados
+   6. PARTÍCULAS FLOTANTES AMBIENTALES
 _______________________________________________ */
 function initAmbientParticles() {
-  const sections = ['sobre', 'skills', 'experiencia', 'estudios', 'contacto'];
-  sections.forEach(id => {
+  const ids = ['sobre', 'skills', 'experiencia', 'estudios', 'contacto'];
+  ids.forEach(id => {
     const sec = document.getElementById(id);
     if (!sec) return;
 
@@ -240,7 +244,7 @@ function initAmbientParticles() {
     }
 
     function initParticles() {
-      const count = Math.floor(W / 120); // ~10–12 puntos
+      const count = Math.floor(W / 120);
       particles = Array.from({ length: count }, () => ({
         x:  Math.random() * W,
         y:  Math.random() * H,
@@ -252,7 +256,7 @@ function initAmbientParticles() {
       }));
     }
 
-    function draw(ts) {
+    function draw() {
       ctx.clearRect(0, 0, W, H);
       particles.forEach(p => {
         p.pulse += 0.008;
@@ -261,7 +265,6 @@ function initAmbientParticles() {
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(201,169,110,${alpha.toFixed(3)})`;
         ctx.fill();
-
         p.x += p.vx;
         p.y += p.vy;
         if (p.x < 0) p.x = W;
@@ -279,12 +282,11 @@ function initAmbientParticles() {
   });
 }
 
-// Iniciar partículas después del load
 window.addEventListener('load', initAmbientParticles);
 
 
 /* ───────────────────────────────────────────
-   8. FADE-IN GENERAL DE SECCIONES
+   7. FADE-IN GENERAL DE SECCIONES
 _______________________________________________ */
 const sectionFadeObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -295,14 +297,16 @@ const sectionFadeObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08 });
 
-document.querySelectorAll('.s-eyebrow, .s-title, .sobre-grid, .skills-grid, .timeline, .proj-showcase, .edu-grid, .certs-grid, .contact-grid').forEach(el => {
+document.querySelectorAll(
+  '.s-eyebrow, .s-title, .sobre-grid, .skills-grid, .timeline, .proj-showcase, .edu-grid, .certs-grid, .contact-grid'
+).forEach(el => {
   el.classList.add('sec-fade');
   sectionFadeObserver.observe(el);
 });
 
 
 /* ───────────────────────────────────────────
-   9. TILT 3D — tarjetas interactivas
+   8. TILT 3D — tarjetas interactivas
 _______________________________________________ */
 function initTilt3D(selector, opts = {}) {
   const maxTilt = opts.maxTilt ?? 12;
@@ -357,7 +361,7 @@ initTilt3D('.tl-body',       { maxTilt: 5,  scale: 1.01 });
 
 
 /* ───────────────────────────────────────────
-   10. HERO — parallax 3D con el cursor
+   9. HERO — parallax 3D con el cursor
 _______________________________________________ */
 const heroSection = document.getElementById('hero-new');
 const hero3dScene = document.getElementById('hero3dScene');
@@ -397,7 +401,7 @@ if (heroSection && window.matchMedia('(pointer: fine)').matches) {
 
 
 /* ───────────────────────────────────────────
-   11. BRILLO DORADO EN TÍTULOS DE SECCIÓN
+   10. BRILLO DORADO EN TÍTULOS DE SECCIÓN
 _______________________________________________ */
 document.querySelectorAll('.s-title em').forEach(em => {
   em.style.background = 'linear-gradient(90deg, var(--gold-light), #fff5e0, var(--gold-light), var(--gold))';

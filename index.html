@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Steven Herrarte — Ingeniería en Sistemas</title>
+  <title>Antony Aquino — Ingeniería en Sistemas</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -15,7 +15,7 @@
   <nav id="navMain">
     <div class="nav-logo">
       <div class="nav-box">AQ</div>
-      <span class="nav-name">Antony Aquno</span>
+      <span class="nav-name">Antony Aquino</span>
     </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero-new" class="active">Inicio</a></li>
@@ -79,7 +79,6 @@
     </div>
     <div class="hero-grain"></div>
 
-    <!-- Escena 3D flotante -->
     <div class="hero-3d-scene" id="hero3dScene" aria-hidden="true">
       <div class="perspective-grid"></div>
       <div class="float-shape shape-cube">
@@ -397,7 +396,6 @@
       <div class="s-eyebrow">04 · proyectos</div>
       <h2 class="s-title">Proyectos <em>Desarrollados</em></h2>
 
-      <!-- Filtros con dots de colores y pulso dorado -->
       <div class="filter-bar">
         <button class="filter-btn active" data-cat="all">Todos</button>
         <button class="filter-btn" data-cat="backend">Backend</button>
@@ -421,101 +419,102 @@
           <div class="proj-carousel-3d" id="projCarousel">
             <div class="proj-carousel-track" id="projTrack">
 
-        <div class="proj-card" data-cat="backend bd" data-href="https://github.com/AntonyAquino/inventariogitt" data-offset="0">
-          <div class="proj-img-wrap">
-            <img src="Crudimagen.png" alt="Sistema de Inventario" class="proj-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="proj-img-fallback">
-              <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
-              <span>Sistema de Inventario</span>
-            </div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-cat-tag">Backend · Base de Datos · Escritorio</div>
-            <div class="proj-name">Sistema de Inventario</div>
-            <p class="proj-desc">Aplicación de escritorio para gestión de inventario con C# y .NET, conectada a base de datos SQL. Incluye control de productos, stock y reportes.</p>
-            <div class="proj-footer">
-              <div class="proj-tags">
-                <span class="ptag">C#</span>
-                <span class="ptag">.NET</span>
-                <span class="ptag">SQL</span>
+              <!-- FIX: data-offset iniciales correctos (0,1,2,3) para evitar flash de invisibilidad -->
+              <div class="proj-card" data-cat="backend bd" data-href="https://github.com/AntonyAquino/inventariogitt" data-offset="0">
+                <div class="proj-img-wrap">
+                  <img src="Crudimagen.png" alt="Sistema de Inventario" class="proj-img"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="proj-img-fallback">
+                    <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+                    <span>Sistema de Inventario</span>
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-cat-tag">Backend · Base de Datos · Escritorio</div>
+                  <div class="proj-name">Sistema de Inventario</div>
+                  <p class="proj-desc">Aplicación de escritorio para gestión de inventario con C# y .NET, conectada a base de datos SQL. Incluye control de productos, stock y reportes.</p>
+                  <div class="proj-footer">
+                    <div class="proj-tags">
+                      <span class="ptag">C#</span>
+                      <span class="ptag">.NET</span>
+                      <span class="ptag">SQL</span>
+                    </div>
+                    <span class="proj-link">Ver en GitHub →</span>
+                  </div>
+                </div>
               </div>
-              <span class="proj-link">Ver en GitHub →</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="proj-card" data-cat="backend bd" data-href="https://github.com/AntonyAquino/viajes" data-offset="1">
-          <div class="proj-img-wrap">
-            <img src="viajesimagen.png" alt="Bitácora de Viajes" class="proj-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="proj-img-fallback">
-              <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
-              <span>Bitácora de Viajes</span>
-            </div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-cat-tag">Backend · Base de Datos · CRUD</div>
-            <div class="proj-name">Bitácora de Viajes</div>
-            <p class="proj-desc">App de escritorio para registrar y gestionar viajes. CRUD completo con MySQL: guardar, editar y eliminar registros con lugar, fecha y costo.</p>
-            <div class="proj-footer">
-              <div class="proj-tags">
-                <span class="ptag">C#</span>
-                <span class="ptag">WinForms</span>
-                <span class="ptag">MySQL</span>
+              <div class="proj-card" data-cat="backend bd" data-href="https://github.com/AntonyAquino/viajes" data-offset="1">
+                <div class="proj-img-wrap">
+                  <img src="viajesimagen.png" alt="Bitácora de Viajes" class="proj-img"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="proj-img-fallback">
+                    <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
+                    <span>Bitácora de Viajes</span>
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-cat-tag">Backend · Base de Datos · CRUD</div>
+                  <div class="proj-name">Bitácora de Viajes</div>
+                  <p class="proj-desc">App de escritorio para registrar y gestionar viajes. CRUD completo con MySQL: guardar, editar y eliminar registros con lugar, fecha y costo.</p>
+                  <div class="proj-footer">
+                    <div class="proj-tags">
+                      <span class="ptag">C#</span>
+                      <span class="ptag">WinForms</span>
+                      <span class="ptag">MySQL</span>
+                    </div>
+                    <span class="proj-link">Ver en GitHub →</span>
+                  </div>
+                </div>
               </div>
-              <span class="proj-link">Ver en GitHub →</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="proj-card" data-cat="backend bd tools" data-href="https://github.com/AntonyAquino/reportsForm" data-offset="2">
-          <div class="proj-img-wrap">
-            <img src="excelimagen.png" alt="Reportes de Ventas" class="proj-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="proj-img-fallback">
-              <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
-              <span>Reportes de Ventas</span>
-            </div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-cat-tag">Backend · Base de Datos · Herramientas</div>
-            <div class="proj-name">Sistema de Reportes de Ventas</div>
-            <p class="proj-desc">Genera reportes dinámicos de productos más vendidos, ingresos y ventas por día. Exportación directa a Excel usando ClosedXML.</p>
-            <div class="proj-footer">
-              <div class="proj-tags">
-                <span class="ptag">MySQL</span>
-                <span class="ptag">WinForms</span>
-                <span class="ptag">Excel</span>
+              <div class="proj-card" data-cat="backend bd tools" data-href="https://github.com/AntonyAquino/reportsForm" data-offset="2">
+                <div class="proj-img-wrap">
+                  <img src="excelimagen.png" alt="Reportes de Ventas" class="proj-img"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="proj-img-fallback">
+                    <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+                    <span>Reportes de Ventas</span>
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-cat-tag">Backend · Base de Datos · Herramientas</div>
+                  <div class="proj-name">Sistema de Reportes de Ventas</div>
+                  <p class="proj-desc">Genera reportes dinámicos de productos más vendidos, ingresos y ventas por día. Exportación directa a Excel usando ClosedXML.</p>
+                  <div class="proj-footer">
+                    <div class="proj-tags">
+                      <span class="ptag">MySQL</span>
+                      <span class="ptag">WinForms</span>
+                      <span class="ptag">Excel</span>
+                    </div>
+                    <span class="proj-link">Ver en GitHub →</span>
+                  </div>
+                </div>
               </div>
-              <span class="proj-link">Ver en GitHub →</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="proj-card" data-cat="frontend backend bd ciberseguridad tools" data-href="https://skillu.vercel.app" data-offset="3">
-          <div class="proj-img-wrap">
-            <img src="skilluimagen.png" alt="SkillU — Plataforma universitaria" class="proj-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="proj-img-fallback">
-              <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
-              <span>SkillU</span>
-            </div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-cat-tag">Frontend · Backend · Base de Datos · Ciberseguridad</div>
-            <div class="proj-name">SkillU</div>
-            <p class="proj-desc">Marketplace universitario guatemalteco que conecta estudiantes verificados con personas que buscan tutorías, desarrollo web y servicios especializados. Landing con diseño oscuro, efectos 3D y despliegue en Vercel.</p>
-            <div class="proj-footer">
-              <div class="proj-tags">
-                <span class="ptag">HTML</span>
-                <span class="ptag">CSS</span>
-                <span class="ptag">Vercel</span>
+              <div class="proj-card" data-cat="frontend backend bd ciberseguridad tools" data-href="https://skillu.vercel.app" data-offset="3">
+                <div class="proj-img-wrap">
+                  <img src="skilluimagen.png" alt="SkillU — Plataforma universitaria" class="proj-img"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="proj-img-fallback">
+                    <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+                    <span>SkillU</span>
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-cat-tag">Frontend · Backend · Base de Datos · Ciberseguridad</div>
+                  <div class="proj-name">SkillU</div>
+                  <p class="proj-desc">Marketplace universitario guatemalteco que conecta estudiantes verificados con personas que buscan tutorías, desarrollo web y servicios especializados. Landing con diseño oscuro, efectos 3D y despliegue en Vercel.</p>
+                  <div class="proj-footer">
+                    <div class="proj-tags">
+                      <span class="ptag">HTML</span>
+                      <span class="ptag">CSS</span>
+                      <span class="ptag">Vercel</span>
+                    </div>
+                    <span class="proj-link proj-link--web">Ver sitio →</span>
+                  </div>
+                </div>
               </div>
-              <span class="proj-link proj-link--web">Ver sitio →</span>
-            </div>
-          </div>
-        </div>
 
             </div>
           </div>
@@ -671,10 +670,10 @@
        FOOTER
   ═══════════════════════════════════════ -->
   <footer>
-    <div class="footer-copy">© 2026 Steven A. Herrarte Aquino — Todos los derechos reservados.</div>
-    <div class="footer-brand">Steven H.</div>
+    <div class="footer-copy">© 2026 Antony Aquino — Todos los derechos reservados.</div>
+    <div class="footer-brand">Antony A.</div>
   </footer>
 
-  <script src="main.js?v=2"></script>
+  <script src="main.js?v=3"></script>
 </body>
 </html>

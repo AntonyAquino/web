@@ -42,7 +42,6 @@ body {
   --mouse-y: 50%;
 }
 
-/* Contenedor 3D global */
 .tilt-3d {
   transform-style: preserve-3d;
   transition: transform .45s cubic-bezier(.23, 1, .32, 1), box-shadow .45s ease;
@@ -83,17 +82,14 @@ img { display: block; max-width: 100%; }
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-/* Pulso lento dorado — para los dots de filtro */
 @keyframes goldPulse {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(201,169,110,0.7); }
   50%       { opacity: 0.55; box-shadow: 0 0 0 5px rgba(201,169,110,0); }
 }
-/* Fade-in de secciones al hacer scroll */
 @keyframes secFadeUp {
   from { opacity: 0; transform: translateY(22px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-/* Línea decorativa que aparece */
 @keyframes lineGrow {
   from { transform: scaleX(0); }
   to   { transform: scaleX(1); }
@@ -156,24 +152,6 @@ img { display: block; max-width: 100%; }
   0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.75; }
   50%       { transform: translate(50px, -20px) scale(1.1); opacity: 1; }
 }
-@keyframes projCinemaSweep {
-  0%   { transform: translateX(-120%) skewX(-12deg); opacity: 0; }
-  8%   { opacity: 0.7; }
-  92%  { opacity: 0.7; }
-  100% { transform: translateX(220%) skewX(-12deg); opacity: 0; }
-}
-@keyframes projDustFloat {
-  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.2; }
-  50%       { transform: translateY(-28px) translateX(12px); opacity: 0.65; }
-}
-@keyframes projCardCinemaLift {
-  0%, 100% { transform: perspective(900px) rotateX(4deg) translateY(-6px) translateZ(20px) scale(1.015); }
-  50%       { transform: perspective(900px) rotateX(2deg) translateY(-12px) translateZ(32px) scale(1.025); }
-}
-@keyframes projStageReveal {
-  from { opacity: 0; transform: perspective(1200px) rotateX(12deg) translateY(40px) translateZ(-80px); }
-  to   { opacity: 1; transform: perspective(1200px) rotateX(0deg) translateY(0) translateZ(0); }
-}
 
 .fade-up { opacity: 0; transform: translateY(28px); animation: fadeUp .9s forwards; }
 .fade-up:nth-child(1) { animation-delay: .10s; }
@@ -184,7 +162,6 @@ img { display: block; max-width: 100%; }
 .blob-1 { animation: blobFloat  9s ease-in-out infinite; }
 .blob-2 { animation: blobFloat2 11s ease-in-out infinite; }
 
-/* Clases para fade scroll de secciones */
 .sec-fade { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
 .sec-visible { opacity: 1; transform: none; }
 
@@ -310,7 +287,6 @@ nav.scrolled {
 .hero-h1 em  { font-style: italic; color: var(--gold-light); }
 .h1-bold     { display: block; font-weight: 600; }
 
-/* ── Escena 3D del hero ── */
 .hero-3d-scene {
   position: absolute; inset: 0; z-index: 1;
   pointer-events: none;
@@ -402,7 +378,6 @@ nav.scrolled {
   text-shadow: 0 0 30px rgba(201,169,110,0.2);
 }
 
-/* Scroll indicator 3D */
 .scroll-indicator {
   position: absolute; bottom: 2.5rem; right: 4rem; z-index: 3;
   display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
@@ -493,7 +468,6 @@ nav.scrolled {
 ═══════════════════════════════════════════════════════════ */
 section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden; }
 
-/* Decoraciones 3D en secciones */
 .section-3d-deco {
   position: absolute; pointer-events: none; z-index: 0;
   transform-style: preserve-3d;
@@ -523,7 +497,6 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 .s-dark   { background: var(--carbon2); }
 .s-darker { background: var(--carbon);  }
 
-/* Línea decorativa superior en secciones (detalle sutil) */
 .s-dark::before,
 .s-darker::before {
   content: '';
@@ -612,7 +585,6 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 /* ═══════════════════════════════════════════════════════════
    SKILLS
 ═══════════════════════════════════════════════════════════ */
-/* ── Sistema de iconos SVG unificado ── */
 .ico-box {
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
@@ -664,6 +636,7 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
   transition: transform .4s cubic-bezier(.23, 1, .32, 1), box-shadow .4s ease, border-color .4s ease, background .4s ease;
   transform-style: preserve-3d;
   box-shadow: 0 4px 16px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
 }
 .sk-icon svg {
   width: 20px; height: 20px;
@@ -713,9 +686,7 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
   border-color: var(--gold-border);
   box-shadow: 0 16px 40px rgba(0,0,0,0.35), -4px 0 20px rgba(201,169,110,0.06);
 }
-.tl-dot {
-  transition: transform .4s, box-shadow .4s;
-}
+.tl-dot { transition: transform .4s, box-shadow .4s; }
 .tl-item.visible:hover .tl-dot {
   transform: scale(1.3) translateZ(8px);
   box-shadow: 0 0 0 6px var(--gold-soft), 0 0 20px rgba(201,169,110,0.4);
@@ -731,7 +702,7 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 
 
 /* ═══════════════════════════════════════════════════════════
-   PROYECTOS — FILTROS REDISEÑADOS
+   PROYECTOS — FILTROS
 ═══════════════════════════════════════════════════════════ */
 .filter-bar { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
 
@@ -760,7 +731,6 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 }
 .filter-btn:active { transform: perspective(400px) rotateX(0deg) translateY(1px); }
 
-/* Dot de color en cada filtro */
 .filter-btn::before {
   content:       '';
   width:         7px;
@@ -771,7 +741,6 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
   opacity:       0.7;
 }
 
-/* Colores de dot por categoría */
 .filter-btn[data-cat="all"]::before      { background: var(--gold); }
 .filter-btn[data-cat="backend"]::before  { background: #5b8af7; }
 .filter-btn[data-cat="frontend"]::before { background: #4ec994; }
@@ -779,7 +748,6 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 .filter-btn[data-cat="ciberseguridad"]::before { background: #f76b8a; }
 .filter-btn[data-cat="tools"]::before    { background: #a47bfa; }
 
-/* Estado activo — dorado con pulso */
 .filter-btn.active {
   background:    var(--gold-soft);
   border-color:  var(--gold-border);
@@ -792,7 +760,7 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 
 
 /* ═══════════════════════════════════════════════════════════
-   PROYECTOS — CARRUSEL 3D COVERFLOW
+   PROYECTOS — CARRUSEL 3D COVERFLOW (CORREGIDO)
 ═══════════════════════════════════════════════════════════ */
 #proyectos { overflow: visible; }
 #proyectos .inner { overflow: visible; }
@@ -802,7 +770,6 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
   margin-top: 0.5rem;
   padding: 1rem 0 0.5rem;
   overflow: visible;
-  min-height: 560px;
 }
 .proj-showcase-bg {
   position: absolute; inset: 0 -1rem;
@@ -832,10 +799,11 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
   position: relative; z-index: 1;
   display: flex; align-items: center; gap: 0.5rem;
 }
+
+/* ── FIX PRINCIPAL: altura fija explícita ── */
 .proj-carousel-3d {
   flex: 1;
-  min-height: 540px;
-  height: auto;
+  height: 520px;           /* altura fija — antes era min-height + height:auto (bug) */
   perspective: 1400px;
   perspective-origin: 50% 45%;
   overflow: hidden;
@@ -844,8 +812,7 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 .proj-carousel-track {
   position: relative;
   width: 100%;
-  min-height: 540px;
-  height: 100%;
+  height: 100%;            /* ahora 100% de 520px = funciona */
   transform-style: preserve-3d;
 }
 
@@ -877,7 +844,7 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 /* Dots */
 .proj-carousel-dots {
   display: flex; justify-content: center; gap: 0.55rem;
-  margin-top: 2rem; position: relative; z-index: 2;
+  margin-top: 1.5rem; position: relative; z-index: 2;
 }
 .proj-dot {
   width: 8px; height: 8px; border-radius: 50%;
@@ -893,15 +860,14 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
   box-shadow: 0 0 16px rgba(201,169,110,0.4);
 }
 
-/* Tarjetas en coverflow 3D */
+/* ── TARJETA BASE: sin margin-left/margin-top hardcodeados ── */
 .proj-card {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(380px, 92vw);
+  /* SIN margin-left ni margin-top — el centrado lo hace translate(-50%,-50%) en cada offset */
+  width: min(380px, 88vw);
   max-width: 380px;
-  margin-left: min(-190px, -46vw);
-  margin-top: -240px;
   background: var(--carbon3);
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -920,13 +886,7 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
   opacity: 0;
   pointer-events: none;
 }
-/* Estado inicial sin JS */
-.proj-card[data-offset="99"] {
-  transform: translateX(0) translateZ(-250px) scale(0.5);
-  opacity: 0;
-  z-index: 0;
-  pointer-events: none;
-}
+
 .proj-card::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 1px; z-index: 4;
@@ -935,9 +895,9 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 }
 .proj-card.hidden { display: none !important; }
 
-/* Posiciones coverflow por offset */
+/* ── POSICIONES COVERFLOW — todas incluyen translate(-50%,-50%) como base ── */
 .proj-card[data-offset="0"] {
-  transform: translateX(0) translateZ(80px) rotateY(0deg) scale(1);
+  transform: translate(-50%, -50%) translateZ(80px) scale(1);
   opacity: 1; z-index: 10;
   pointer-events: auto;
   border-color: var(--gold-border);
@@ -948,44 +908,48 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 }
 .proj-card[data-offset="0"]::before { opacity: 1; }
 
+.proj-card[data-offset="0"]:hover {
+  box-shadow:
+    0 48px 90px rgba(0,0,0,0.6),
+    0 0 70px rgba(201,169,110,0.16);
+  transform: translate(-50%, -50%) translateZ(92px) scale(1.01);
+}
+
 .proj-card[data-offset="-1"] {
-  transform: translateX(-62%) translateZ(-30px) rotateY(38deg) scale(0.84);
+  transform: translate(-50%, -50%) translateX(-62%) translateZ(-30px) rotateY(38deg) scale(0.84);
   opacity: 0.55; z-index: 6;
   pointer-events: auto;
 }
 .proj-card[data-offset="1"] {
-  transform: translateX(62%) translateZ(-30px) rotateY(-38deg) scale(0.84);
+  transform: translate(-50%, -50%) translateX(62%) translateZ(-30px) rotateY(-38deg) scale(0.84);
   opacity: 0.55; z-index: 6;
   pointer-events: auto;
 }
 .proj-card[data-offset="-2"] {
-  transform: translateX(-95%) translateZ(-120px) rotateY(52deg) scale(0.72);
+  transform: translate(-50%, -50%) translateX(-95%) translateZ(-120px) rotateY(52deg) scale(0.72);
   opacity: 0.35; z-index: 3; pointer-events: none;
 }
 .proj-card[data-offset="2"] {
-  transform: translateX(95%) translateZ(-120px) rotateY(-52deg) scale(0.72);
+  transform: translate(-50%, -50%) translateX(95%) translateZ(-120px) rotateY(-52deg) scale(0.72);
   opacity: 0.35; z-index: 3; pointer-events: none;
 }
 .proj-card[data-offset="-3"],
 .proj-card[data-offset="3"],
 .proj-card[data-offset="-4"],
-.proj-card[data-offset="4"] {
-  transform: translateX(0) translateZ(-250px) rotateY(0deg) scale(0.5);
+.proj-card[data-offset="4"],
+.proj-card[data-offset="99"] {
+  transform: translate(-50%, -50%) translateZ(-250px) scale(0.5);
   opacity: 0; z-index: 0; pointer-events: none;
 }
 
-/* Tarjetas laterales: solo imagen + título */
+/* Tarjetas laterales: imagen + título compactos */
 .proj-card:not([data-offset="0"]) .proj-desc,
 .proj-card:not([data-offset="0"]) .proj-footer { display: none; }
 .proj-card:not([data-offset="0"]) .proj-body { padding: 1rem 1.25rem 1.25rem; }
 .proj-card:not([data-offset="0"]) .proj-img-wrap { height: 160px; }
 .proj-card:not([data-offset="0"]) .proj-name { font-size: 1rem; margin-bottom: 0; }
 
-.proj-card[data-offset="0"]:hover {
-  box-shadow:
-    0 48px 90px rgba(0,0,0,0.6),
-    0 0 70px rgba(201,169,110,0.16);
-}
+/* Sombra bajo la tarjeta central */
 .proj-card[data-offset="0"]::after {
   content: '';
   position: absolute; bottom: -18px; left: 10%; right: 10%; height: 20px;
@@ -996,6 +960,7 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
   z-index: -1;
 }
 
+/* Imagen */
 .proj-img-wrap {
   width: 100%; height: 200px; overflow: hidden;
   background: var(--carbon4); position: relative;
@@ -1023,9 +988,7 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
   transition: transform .45s ease;
   transform: scale(1.02);
 }
-.proj-card[data-offset="0"]:hover .proj-img {
-  transform: scale(1.05);
-}
+.proj-card[data-offset="0"]:hover .proj-img { transform: scale(1.05); }
 
 @media (prefers-reduced-motion: reduce) {
   .proj-showcase-glow,
@@ -1053,7 +1016,6 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
   background: var(--carbon4); border: 1px solid var(--border); color: var(--muted);
 }
 
-/* ── Botón "Ver en GitHub" rediseñado ── */
 .proj-link {
   display:        inline-flex;
   align-items:    center;
@@ -1069,8 +1031,6 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
   transition:     all .22s;
   white-space:    nowrap;
 }
-
-/* Icono octágono GitHub antes del texto */
 .proj-link::before {
   content:       '';
   width:         13px;
@@ -1086,14 +1046,12 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
   -webkit-mask-repeat:   no-repeat;
   -webkit-mask-position: center;
 }
-
 .proj-card:hover .proj-link {
   border-color: var(--gold-border);
   color:        var(--gold);
   background:   var(--gold-soft);
   letter-spacing: 0.06em;
 }
-
 .proj-link--web::before {
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3'/%3E%3C/svg%3E");
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3'/%3E%3C/svg%3E");
@@ -1226,44 +1184,48 @@ footer { background: var(--carbon2); border-top: 1px solid var(--border); paddin
   .edu-grid       { grid-template-columns: 1fr; }
 
   footer          { padding: 1.5rem; justify-content: center; text-align: center; }
-}
 
-@media (max-width: 960px) {
-  .proj-showcase { min-height: 480px; }
+  /* Carrusel tablet */
+  .proj-carousel-3d { height: 460px; }
   .proj-showcase-floor { opacity: 0.35; }
-  .proj-carousel-3d,
-  .proj-carousel-track { min-height: 460px; }
   .proj-card {
-    width: min(340px, 94vw);
-    max-width: 340px;
-    margin-left: min(-170px, -47vw);
-    margin-top: -220px;
+    width: min(320px, 90vw);
+    max-width: 320px;
   }
-  .proj-card[data-offset="-1"] { transform: translateX(-54%) translateZ(-20px) rotateY(32deg) scale(0.82); opacity: 0.45; }
-  .proj-card[data-offset="1"]  { transform: translateX(54%) translateZ(-20px) rotateY(-32deg) scale(0.82); opacity: 0.45; }
+  .proj-card[data-offset="-1"] {
+    transform: translate(-50%, -50%) translateX(-54%) translateZ(-20px) rotateY(32deg) scale(0.82);
+    opacity: 0.45;
+  }
+  .proj-card[data-offset="1"] {
+    transform: translate(-50%, -50%) translateX(54%) translateZ(-20px) rotateY(-32deg) scale(0.82);
+    opacity: 0.45;
+  }
   .proj-card[data-offset="-2"],
-  .proj-card[data-offset="2"]  { opacity: 0; pointer-events: none; }
+  .proj-card[data-offset="2"] { opacity: 0; pointer-events: none; }
   .proj-nav { width: 38px; height: 38px; }
 }
 
 @media (max-width: 640px) {
-  .proj-showcase { min-height: auto; padding-bottom: 1rem; }
+  .proj-showcase { padding-bottom: 1rem; }
   .proj-showcase-glow { display: none; }
   .proj-carousel-wrap { gap: 0.35rem; }
-  .proj-carousel-3d,
-  .proj-carousel-track {
-    min-height: 0;
+
+  /* En móvil: layout plano, sin perspectiva 3D */
+  .proj-carousel-3d {
     height: auto;
-    overflow: visible;
     perspective: none;
+    overflow: visible;
+  }
+  .proj-carousel-track {
+    height: auto;
+    min-height: 0;
   }
   .proj-card {
     position: relative;
     left: auto; top: auto;
     width: 100%; max-width: 100%;
-    margin: 0;
-    opacity: 0;
     transform: none !important;
+    opacity: 0;
     pointer-events: none;
     display: none;
   }
@@ -1272,14 +1234,14 @@ footer { background: var(--carbon2); border-top: 1px solid var(--border); paddin
     opacity: 1;
     pointer-events: auto;
     transform: none !important;
+    border-color: var(--gold-border);
     box-shadow: 0 16px 40px rgba(0,0,0,0.4);
   }
-  .proj-card:not([data-offset="0"]) .proj-desc,
-  .proj-card:not([data-offset="0"]) .proj-footer { display: none; }
-  .proj-card[data-offset="0"] .proj-desc { display: block; }
+  .proj-card[data-offset="0"] .proj-desc   { display: block; }
   .proj-card[data-offset="0"] .proj-footer { display: flex; }
-  .proj-card[data-offset="0"] .proj-body { padding: 1.6rem; }
+  .proj-card[data-offset="0"] .proj-body   { padding: 1.6rem; }
   .proj-card[data-offset="0"] .proj-img-wrap { height: 200px; }
+
   .filter-bar { gap: 0.4rem; }
   .filter-btn { font-size: 0.72rem; padding: 0.4rem 0.85rem; }
   .hero-dots  { display: none; }

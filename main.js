@@ -22,6 +22,16 @@ mobMenu.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => mobMenu.classList.remove('open'));
 });
 
+const contactEmail = 'antonyaquino444@gmail.com';
+const gmailComposeUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=antonyaquino444%40gmail.com&su=Contacto%20desde%20portafolio';
+
+document.querySelectorAll(`a[href^="mailto:${contactEmail}"]`).forEach(link => {
+  link.href = gmailComposeUrl;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.setAttribute('aria-label', `Redactar correo para ${contactEmail}`);
+});
+
 
 /* ───────────────────────────────────────────
    2. BARRAS DE SKILLS — animar al entrar en vista
@@ -42,6 +52,213 @@ const skillObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 
 document.querySelectorAll('.sk-card').forEach(card => skillObserver.observe(card));
+
+
+/* -------------------------------------------
+   2.1 CONOCIMIENTOS TECNICOS INTERACTIVOS
+_______________________________________________ */
+const techDetails = {
+  'soporte': {
+    kicker: 'Soporte Técnico / IT Support',
+    title: 'Soporte Técnico',
+    copy: 'Experiencia en soporte técnico a nivel de usuario y mantenimiento de equipos de cómputo, con enfoque en la resolución de incidencias, optimización y funcionamiento correcto de sistemas.',
+    points: [
+      'Mantenimiento preventivo y correctivo de computadoras (limpieza interna de hardware, revisión de componentes y diagnóstico básico de fallas).',
+      'Ensamblaje y desensamblaje de equipos de cómputo.',
+      'Instalación, configuración y actualización de sistemas operativos Windows y software de uso común.',
+      'Resolución de incidencias en sistemas operativos y aplicaciones.',
+      'Validación del correcto funcionamiento de aplicaciones y servicios en equipos de usuario.',
+      'Soporte remoto con Quick Assist, herramientas de Help Desk y asistencia técnica básica.',
+      'Documentación de incidencias, reportes técnicos y comunicación efectiva con usuarios.'
+    ],
+    tags: ['Windows', 'Quick Assist', 'Help Desk', 'Hardware', 'Mantenimiento']
+  },
+  'redes': {
+    kicker: 'Redes y Conectividad',
+    title: 'Redes y Conectividad',
+    copy: 'Conocimientos en instalación, configuración y diagnóstico básico de redes informáticas, enfocados en la conectividad y resolución de incidencias.',
+    points: [
+      'Configuración básica de routers, switches y repetidores de señal.',
+      'Conocimientos de direccionamiento IP, subredes y conectividad de red.',
+      'Diagnóstico de problemas de red mediante Ping, Tracert e Ipconfig.',
+      'Configuración y verificación de servicios DNS.',
+      'Instalación y organización de cableado de red estructurado.',
+      'Conocimiento de redes LAN, WAN y WLAN.',
+      'Identificación y resolución básica de problemas de conectividad.',
+      'Aplicación de buenas prácticas para mantener la estabilidad y disponibilidad de la red.'
+    ],
+    tags: ['LAN', 'WAN', 'WLAN', 'DNS', 'TCP-IP', 'Routers', 'Switches']
+  },
+  'mysql': {
+    kicker: 'Bases de Datos',
+    title: 'Bases de Datos',
+    copy: 'Experiencia académica en diseño, implementación y administración de bases de datos relacionales.',
+    points: [
+      'Diseño de bases de datos relacionales: creación de tablas, relaciones y restricciones.',
+      'Consultas SQL y operaciones CRUD.',
+      'Creación de procedimientos básicos.',
+      'Optimización básica de consultas.',
+      'Integración de bases de datos con aplicaciones de escritorio.',
+      'Respaldo y restauración de bases de datos.'
+    ],
+    tags: ['MySQL', 'MySQL Workbench', 'XAMPP', 'Lucidchart', 'SQL']
+  },
+  'backend': {
+    kicker: 'Desarrollo Backend',
+    title: 'Desarrollo Backend',
+    copy: 'Desarrollo de lógica de negocio y aplicaciones de escritorio utilizando tecnologías Microsoft.',
+    points: [
+      'Desarrollo de aplicaciones de escritorio con Windows Forms.',
+      'Implementación de lógica de negocio.',
+      'Integración con bases de datos MySQL.',
+      'Gestión de operaciones CRUD.',
+      'Validación de datos y manejo de eventos y formularios.',
+      'Depuración y corrección de errores.',
+      'Mantenimiento y mejora de aplicaciones existentes.'
+    ],
+    tags: ['C#', 'Java', 'C++', '.NET Framework', 'Windows Forms']
+  },
+  'frontend': {
+    kicker: 'Desarrollo Frontend',
+    title: 'Desarrollo Frontend',
+    copy: 'Desarrollo de interfaces web enfocadas en experiencia de usuario y presentación visual.',
+    points: [
+      'Creación de páginas web responsivas.',
+      'Estructuración semántica de contenido.',
+      'Diseño de interfaces de usuario.',
+      'Adaptación de sitios para diferentes dispositivos.',
+      'Maquetación web.',
+      'Organización y optimización de estilos.'
+    ],
+    tags: ['HTML', 'CSS3', 'JavaScript', 'Responsive']
+  },
+  'herramientas': {
+    kicker: 'Herramientas de Desarrollo',
+    title: 'Herramientas Dev',
+    copy: 'Dominio de herramientas del ecosistema de desarrollo de software para control de versiones, edición de código y gestión de proyectos.',
+    points: [
+      'Control de versiones con Git.',
+      'Gestión de repositorios en GitHub.',
+      'Documentación de proyectos.',
+      'Organización y seguimiento de cambios en código.'
+    ],
+    tags: ['Git', 'GitHub', 'Visual Studio', 'VS Code', 'XAMPP', 'MySQL Workbench']
+  },
+  'ofimatica': {
+    kicker: 'Ofimática y Productividad',
+    title: 'Ofimática',
+    copy: 'Manejo de herramientas ofimáticas para la elaboración de documentos, análisis de información, presentaciones y gestión administrativa.',
+    points: [
+      'Creación y edición de documentos profesionales.',
+      'Elaboración de informes y documentación técnica.',
+      'Manejo de hojas de cálculo para organización y análisis de información.',
+      'Creación de tablas, fórmulas y funciones básicas en Excel.',
+      'Diseño de presentaciones profesionales.',
+      'Gestión y organización de archivos digitales.',
+      'Uso de herramientas colaborativas en la nube.',
+      'Administración básica de correo electrónico corporativo.'
+    ],
+    tags: ['Word', 'Excel', 'PowerPoint', 'Outlook', 'Google Docs', 'Google Sheets', 'Canva']
+  },
+  'ciberseguridad': {
+    kicker: 'Ciberseguridad',
+    title: 'Ciberseguridad',
+    copy: 'Conocimientos básicos de seguridad informática enfocados en la protección de sistemas, redes y aplicaciones.',
+    points: [
+      'Identificación de amenazas comunes: phishing, malware, ransomware e ingeniería social.',
+      'Comprensión de conceptos de autenticación y autorización.',
+      'Conocimiento de protocolos seguros de comunicación: HTTPS y SSL/TLS.',
+      'Conocimiento básico de vulnerabilidades web: SQL Injection y Cross-Site Scripting (XSS).',
+      'Aplicación de buenas prácticas de seguridad en sistemas y aplicaciones.',
+      'Identificación de riesgos relacionados con el acceso y manejo de información.',
+      'Áreas de interés: Ethical Hacking, Pentesting, Análisis de vulnerabilidades.'
+    ],
+    tags: ['Ethical Hacking', 'Pentesting', 'HTTPS', 'SSL/TLS', 'XSS', 'SQL Injection']
+  },
+  'ia': {
+    kicker: 'Inteligencia Artificial y Automatización',
+    title: 'IA y Automatización',
+    copy: 'Conocimientos en el uso e integración de herramientas de inteligencia artificial para automatización de procesos, asistencia al desarrollo de software y construcción de soluciones inteligentes.',
+    points: [
+      'Diseño y optimización de prompts para tareas técnicas y generación de contenido.',
+      'Integración de modelos de IA mediante APIs.',
+      'Desarrollo de proyectos con asistentes y agentes basados en inteligencia artificial.',
+      'Automatización de flujos de trabajo mediante n8n.',
+      'Conocimiento de arquitecturas basadas en agentes de IA.',
+      'Implementación de conexiones entre aplicaciones y servicios de IA.',
+      'Comprensión de conceptos de IA Generativa y Machine Learning.',
+      'Creación y configuración de agentes IA con MCP (Model Context Protocol).'
+    ],
+    tags: ['n8n', 'ChatGPT', 'Gemini', 'Claude', 'Cursor', 'APIs IA', 'MCP']
+  },
+  'habilidades': {
+    kicker: 'Habilidades Profesionales',
+    title: 'Habilidades Prof.',
+    copy: 'Competencias transversales orientadas al trabajo en equipo, la comunicación y la resolución efectiva de problemas en entornos técnicos y administrativos.',
+    points: [
+      'Comunicación efectiva.',
+      'Resolución de problemas.',
+      'Trabajo en equipo.',
+      'Aprendizaje autónomo.',
+      'Adaptabilidad.',
+      'Atención al usuario.',
+      'Organización y documentación técnica.'
+    ],
+    tags: ['Comunicación', 'Trabajo en equipo', 'Resolución de problemas', 'Documentación']
+  }
+};
+
+function buildDrawerHTML(key) {
+  const d = techDetails[key];
+  if (!d) return '';
+  return `
+    <div class="acc-drawer-inner">
+      <div class="acc-drawer-kicker">${d.kicker}</div>
+      <div class="acc-drawer-copy">${d.copy}</div>
+      <ul class="acc-drawer-list">
+        ${d.points.map(p => `<li>${p}</li>`).join('')}
+      </ul>
+      <div class="acc-drawer-tags">
+        ${d.tags.map(t => `<span>${t}</span>`).join('')}
+      </div>
+    </div>
+  `;
+}
+
+document.querySelectorAll('.acc-btn[data-tech]').forEach(btn => {
+  const key    = btn.dataset.tech;
+  const item   = btn.closest('.acc-item');
+  const drawer = item.querySelector('.acc-drawer[data-drawer="' + key + '"]');
+
+  if (drawer && !drawer.innerHTML.trim()) {
+    drawer.innerHTML = buildDrawerHTML(key);
+  }
+
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    // Cerrar todos
+    document.querySelectorAll('.acc-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.acc-btn').setAttribute('aria-expanded', 'false');
+      const d = openItem.querySelector('.acc-drawer');
+      if (d) d.setAttribute('aria-hidden', 'true');
+    });
+
+    // Si estaba cerrado, abrir este
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      if (drawer) drawer.setAttribute('aria-hidden', 'false');
+    }
+  });
+
+  if (key === 'soporte') {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    if (drawer) drawer.setAttribute('aria-hidden', 'false');
+  }
+});
 
 
 /* ───────────────────────────────────────────
@@ -298,7 +515,7 @@ const sectionFadeObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 
 document.querySelectorAll(
-  '.s-eyebrow, .s-title, .sobre-grid, .skills-grid, .timeline, .know-block, .proj-showcase, .edu-grid, .certs-grid, .contact-grid'
+  '.s-eyebrow, .s-title, .sobre-grid, .skills-grid, .skills-panel, .timeline, .know-block, .proj-showcase, .edu-grid, .certs-grid, .contact-grid'
 ).forEach(el => {
   el.classList.add('sec-fade');
   sectionFadeObserver.observe(el);

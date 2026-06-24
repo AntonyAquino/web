@@ -298,7 +298,7 @@ const sectionFadeObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 
 document.querySelectorAll(
-  '.s-eyebrow, .s-title, .sobre-grid, .skills-grid, .timeline, .proj-showcase, .edu-grid, .certs-grid, .contact-grid'
+  '.s-eyebrow, .s-title, .sobre-grid, .skills-grid, .timeline, .know-block, .proj-showcase, .edu-grid, .certs-grid, .contact-grid'
 ).forEach(el => {
   el.classList.add('sec-fade');
   sectionFadeObserver.observe(el);

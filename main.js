@@ -379,7 +379,7 @@ projCards.forEach(card => {
       }
       return;
     }
-    if (card.dataset.href) window.open(card.dataset.href, '_blank');
+    if (card.dataset.href && card.dataset.href !== '#') window.open(card.dataset.href, '_blank');
   });
 });
 
@@ -397,12 +397,18 @@ if (projShowcase) {
   });
 
   let touchStartX = 0;
+  let touchStartY = 0;
   projCarousel?.addEventListener('touchstart', e => {
     touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
   }, { passive: true });
   projCarousel?.addEventListener('touchend', e => {
-    const diff = e.changedTouches[0].screenX - touchStartX;
-    if (Math.abs(diff) > 50) goProj(diff > 0 ? -1 : 1);
+    const diffX = e.changedTouches[0].screenX - touchStartX;
+    const diffY = e.changedTouches[0].screenY - touchStartY;
+    // Solo cambiar si el swipe es predominantemente horizontal
+    if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY) * 1.25) {
+      goProj(diffX > 0 ? -1 : 1);
+    }
   }, { passive: true });
 
   /* FIX: doble rAF para asegurar que el DOM esté listo antes del primer render */
@@ -627,4 +633,301 @@ document.querySelectorAll('.s-title em').forEach(em => {
   em.style.webkitTextFillColor = 'transparent';
   em.style.backgroundClip = 'text';
   em.style.animation = 'shimmerGold 6s linear infinite';
+});
+
+
+
+/* ───────────────────────────────────────────
+   11. BARRA DE PROGRESO DE LECTURA Y RETORNO ARRIBA
+_______________________________________________ */
+const scrollProgress = document.getElementById('scrollProgress');
+const backToTopBtn   = document.getElementById('backToTop');
+const progressCircle = document.querySelector('.progress-ring__circle');
+const circleCircumference = 119.38; // 2 * Math.PI * 19
+
+function updateScrollUI() {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+  if (scrollProgress) {
+    scrollProgress.style.width = scrollPercent + '%';
+  }
+
+  if (backToTopBtn) {
+    backToTopBtn.classList.toggle('visible', scrollTop > 320);
+    if (progressCircle) {
+      const offset = circleCircumference - (circleCircumference * (scrollPercent / 100));
+      progressCircle.style.strokeDashoffset = Math.max(0, offset);
+    }
+  }
+}
+
+window.addEventListener('scroll', updateScrollUI, { passive: true });
+
+if (backToTopBtn) {
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+
+/* ───────────────────────────────────────────
+   12. HERO — TEXTO ROTATIVO / TYPEWRITER
+_______________________________________________ */
+const rotTextEl = document.getElementById('rotText');
+if (rotTextEl) {
+  const roles = [
+    'Desarrollo Backend en C# & .NET',
+    'Bases de Datos & SQL Server / MySQL',
+    'Soporte Técnico & Redes TI',
+    'Automatización & Agentes IA'
+  ];
+  let roleIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+  let typingSpeed = 70;
+
+  function typeRole() {
+    const current = roles[roleIdx];
+    if (isDeleting) {
+      rotTextEl.textContent = current.substring(0, charIdx - 1);
+      charIdx--;
+      typingSpeed = 35;
+    } else {
+      rotTextEl.textContent = current.substring(0, charIdx + 1);
+      charIdx++;
+      typingSpeed = 75;
+    }
+
+    if (!isDeleting && charIdx === current.length) {
+      isDeleting = true;
+      typingSpeed = 2200; // pausa antes de borrar
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      roleIdx = (roleIdx + 1) % roles.length;
+      typingSpeed = 400; // pausa antes de escribir el siguiente
+    }
+
+    setTimeout(typeRole, typingSpeed);
+  }
+
+  setTimeout(typeRole, 600);
+}
+
+
+/* ───────────────────────────────────────────
+   13. RETRATO 3D HOLOGRÁFICO CON PARALAJE
+_______________________________________________ */
+const portraitStage = document.getElementById('portraitStage');
+const portraitCard  = document.getElementById('portraitCard');
+const orbitBadges   = document.querySelectorAll('.orbit-badge');
+
+if (portraitStage && portraitCard && window.matchMedia('(pointer: fine)').matches) {
+  portraitStage.addEventListener('mousemove', e => {
+    const rect = portraitStage.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+    const rotX = -y * 18;
+    const rotY = x * 22;
+
+    portraitCard.style.transform = `
+      perspective(1000px)
+      rotateX(${rotX}deg)
+      rotateY(${rotY}deg)
+      scale3d(1.02, 1.02, 1.02)
+      translateZ(10px)
+    `;
+
+    orbitBadges.forEach((b, idx) => {
+      const depth = (idx + 1) * 8;
+      b.style.transform = `
+        translateX(${x * depth * 1.5}px)
+        translateY(${y * depth * 1.2}px)
+        translateZ(${depth * 2}px)
+      `;
+    });
+  });
+
+  portraitStage.addEventListener('mouseleave', () => {
+    portraitCard.style.transform = '';
+    orbitBadges.forEach(b => {
+      b.style.transform = '';
+    });
+  });
+}
+
+
+/* ───────────────────────────────────────────
+   14. CONTADORES NUMÉRICOS ANIMADOS EN ESTADÍSTICAS
+_______________________________________________ */
+const statsSection = document.querySelector('.stats-row');
+if (statsSection) {
+  let statsAnimated = false;
+  const countObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !statsAnimated) {
+        statsAnimated = true;
+        document.querySelectorAll('.stat-n[data-count]').forEach(el => {
+          const target = parseInt(el.dataset.count, 10);
+          const suffix = el.dataset.suffix || '';
+          let current = 0;
+          const duration = 1600;
+          const stepTime = Math.max(15, Math.floor(duration / target));
+
+          const timer = setInterval(() => {
+            current += 1;
+            el.textContent = current + suffix;
+            if (current >= target) {
+              el.textContent = target + suffix;
+              clearInterval(timer);
+            }
+          }, stepTime);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  countObserver.observe(statsSection);
+}
+
+
+/* ───────────────────────────────────────────
+   15. TOAST NOTIFICATION & COPIADO AL PORTAPAPELES
+_______________________________________________ */
+const toastNotice = document.getElementById('toastNotice');
+const toastMsg    = document.getElementById('toastMsg');
+let toastTimer    = null;
+
+function showToast(message) {
+  if (!toastNotice) return;
+  if (toastMsg) toastMsg.textContent = message;
+  toastNotice.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    toastNotice.classList.remove('show');
+  }, 2600);
+}
+
+// Copiado de botones con data-copy
+document.querySelectorAll('[data-copy]').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    const textToCopy = btn.getAttribute('data-copy');
+    if (!textToCopy) return;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        showToast(`Copiado: ${textToCopy}`);
+      }).catch(() => {
+        fallbackCopy(textToCopy);
+      });
+    } else {
+      fallbackCopy(textToCopy);
+    }
+  });
+});
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    showToast(`Copiado: ${text}`);
+  } catch (err) {
+    showToast('No se pudo copiar');
+  }
+  document.body.removeChild(ta);
+}
+
+// Copiado de código en la terminal
+const copyCodeBtn = document.getElementById('copyCodeBtn');
+if (copyCodeBtn) {
+  copyCodeBtn.addEventListener('click', () => {
+    const codeEl = document.querySelector('.term-content code');
+    if (codeEl) {
+      const codeText = codeEl.innerText;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(codeText).then(() => {
+          showToast('¡Código C# copiado con éxito!');
+        });
+      }
+    }
+  });
+}
+
+
+/* ───────────────────────────────────────────
+   16. BÚSQUEDA Y FILTRADO INSTANTÁNEO EN SKILLS
+_______________________________________________ */
+const skillsSearchInput = document.getElementById('skillsSearchInput');
+const skillsSearchClear = document.getElementById('skillsSearchClear');
+const skFilterChips     = document.querySelectorAll('.sk-chip');
+const accItems          = document.querySelectorAll('.acc-item');
+
+const categoryMap = {
+  'dev':    ['backend', 'frontend', 'herramientas'],
+  'infra':  ['soporte', 'redes'],
+  'data':   ['mysql'],
+  'future': ['ia', 'ciberseguridad']
+};
+
+function applySkillsFilter() {
+  const query = (skillsSearchInput?.value || '').trim().toLowerCase();
+  const activeChip = document.querySelector('.sk-chip.active');
+  const activeCategory = activeChip ? activeChip.dataset.skFilter : 'all';
+
+  if (skillsSearchClear) {
+    skillsSearchClear.style.display = query.length > 0 ? 'inline-block' : 'none';
+  }
+
+  accItems.forEach(item => {
+    const btn = item.querySelector('.acc-btn');
+    const techKey = btn?.dataset.tech || '';
+    const title = (item.querySelector('.acc-title')?.textContent || '').toLowerCase();
+    const sub   = (item.querySelector('.acc-sub')?.textContent || '').toLowerCase();
+
+    // Filtro por categoría
+    let matchesCategory = true;
+    if (activeCategory !== 'all') {
+      const allowedKeys = categoryMap[activeCategory] || [];
+      matchesCategory = allowedKeys.includes(techKey);
+    }
+
+    // Filtro por texto de búsqueda
+    let matchesQuery = true;
+    if (query) {
+      matchesQuery = title.includes(query) || sub.includes(query) || techKey.includes(query);
+    }
+
+    const isVisible = matchesCategory && matchesQuery;
+    item.classList.toggle('search-hidden', !isVisible);
+    item.classList.toggle('search-highlight', query.length > 0 && isVisible);
+  });
+}
+
+if (skillsSearchInput) {
+  skillsSearchInput.addEventListener('input', applySkillsFilter);
+}
+
+if (skillsSearchClear) {
+  skillsSearchClear.addEventListener('click', () => {
+    skillsSearchInput.value = '';
+    applySkillsFilter();
+    skillsSearchInput.focus();
+  });
+}
+
+skFilterChips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    skFilterChips.forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    applySkillsFilter();
+  });
 });

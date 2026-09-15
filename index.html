@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Antony Aquino — Ingeniería en Sistemas</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
+
+  <!-- Barra de progreso superior de lectura -->
+  <div id="scrollProgress" class="scroll-progress-bar" aria-hidden="true"></div>
 
   <!-- ═══════════════════════════════════════
        NAV
@@ -27,7 +30,7 @@
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <a href="#contacto" class="nav-cta">Contáctame</a>
-    <button class="nav-burger" id="burgerBtn">☰</button>
+    <button class="nav-burger" id="burgerBtn" aria-label="Abrir menú">☰</button>
   </nav>
 
   <div class="mob-menu" id="mobMenu">
@@ -81,76 +84,121 @@
 
     <div class="hero-3d-scene" id="hero3dScene" aria-hidden="true">
       <div class="perspective-grid"></div>
-      <div class="float-shape shape-cube">
-        <div class="cube">
-          <div class="cube-face front"></div>
-          <div class="cube-face back"></div>
-          <div class="cube-face right"></div>
-          <div class="cube-face left"></div>
-          <div class="cube-face top"></div>
-          <div class="cube-face bottom"></div>
-        </div>
-      </div>
-      <div class="float-shape shape-ring">
-        <div class="ring-3d"></div>
-      </div>
-      <div class="float-shape shape-orb orb-1"></div>
-      <div class="float-shape shape-orb orb-2"></div>
-      <div class="float-shape shape-orb orb-3"></div>
-      <div class="float-shape shape-diamond">
-        <div class="diamond-3d"></div>
-      </div>
-      <div class="float-shape shape-code">&lt;/&gt;</div>
     </div>
 
     <div class="hero-inner">
-      <div class="hero-eyebrow fade-up">Disponible para oportunidades · Guatemala</div>
+      <div class="hero-grid">
+        
+        <!-- Columna Izquierda: Información y llamadas a la acción -->
+        <div class="hero-content">
+          <div class="hero-eyebrow fade-up">
+            <span class="status-indicator">
+              <span class="status-dot"></span>
+              <span class="status-ping"></span>
+            </span>
+            <span>Disponible para oportunidades · Guatemala / Remoto</span>
+          </div>
 
-      <h1 class="hero-h1 fade-up" id="heroTitle">
-        <span class="h1-layer">Construyo <em>sistemas</em><br>
-        <span class="h1-bold">que funcionan.</span></span>
-      </h1>
+          <h1 class="hero-h1 fade-up" id="heroTitle">
+            <span class="h1-layer">
+              Construyo <span class="h1-gold-em">software</span><br>
+              <span class="h1-bold">escalable y seguro.</span>
+            </span>
+          </h1>
 
-      <p class="hero-sub fade-up">
-        Estudiante de Ingeniería en Sistemas con dominio en C#, .NET y SQL.
-        Experiencia en entornos bancarios y administrativos.
-        Orientado a resultados y listo para tu equipo.
-      </p>
+          <div class="hero-rotating-line fade-up">
+            <span class="h-rot-label">Especializado en:</span>
+            <span class="h-rot-text" id="rotText">Desarrollo C# & .NET</span>
+            <span class="h-rot-cursor">|</span>
+          </div>
 
-      <div class="hero-btns fade-up">
-        <a href="#proyectos" class="btn-gold">Ver proyectos</a>
-        <a href="#contacto" class="btn-outline">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-          </svg>
-          Contáctame
-        </a>
-      </div>
-    </div>
+          <p class="hero-sub fade-up">
+            Estudiante de <strong>Ingeniería en Sistemas</strong> con dominio en C#, .NET y SQL.
+            Experiencia en entornos bancarios y administrativos con enfoque en soluciones robustas y escalables.
+          </p>
 
-    <div class="hero-side-icons">
-      <div class="side-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M12 2a10 10 0 0 1 0 20"/></svg>
-      </div>
-      <div class="side-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-      </div>
-      <div class="side-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-      </div>
-      <div class="side-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-      </div>
-      <div class="side-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-    </div>
+          <div class="hero-highlights fade-up">
+            <div class="h-badge">
+              <span class="h-badge-num">6to</span>
+              <span class="h-badge-lbl">Semestre UMG</span>
+            </div>
+            <div class="h-badge">
+              <span class="h-badge-num">2+</span>
+              <span class="h-badge-lbl">Años Práctica</span>
+            </div>
+            <div class="h-badge">
+              <span class="h-badge-num">C# & SQL</span>
+              <span class="h-badge-lbl">Stack Principal</span>
+            </div>
+          </div>
 
-    <div class="hero-dots">
-      <div class="hero-dot"></div>
-      <div class="hero-dot active"></div>
-      <div class="hero-dot"></div>
-      <div class="hero-dot"></div>
+          <div class="hero-btns fade-up">
+            <a href="#proyectos" class="btn-gold btn-shine">
+              <span>Ver proyectos</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><polyline points="7 13 12 18 17 13"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
+            </a>
+            <a href="#contacto" class="btn-outline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              <span>Contáctame</span>
+            </a>
+            <a href="https://github.com/AntonyAquino" target="_blank" rel="noopener noreferrer" class="btn-icon-link" aria-label="GitHub de Antony" title="Ver GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/steven-aquinoo" target="_blank" rel="noopener noreferrer" class="btn-icon-link" aria-label="LinkedIn de Steven Antony" title="Ver LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Tarjeta Holográfica 3D con Foto de Antony y Badges flotantes -->
+        <div class="hero-visual fade-up">
+          <div class="portrait-stage" id="portraitStage">
+            <div class="portrait-aura" aria-hidden="true"></div>
+            
+            <div class="portrait-card" id="portraitCard">
+              <div class="portrait-corner c-tl"></div>
+              <div class="portrait-corner c-tr"></div>
+              <div class="portrait-corner c-bl"></div>
+              <div class="portrait-corner c-br"></div>
+              
+              <div class="portrait-img-wrap">
+                <img src="antony-perfil.png" alt="Antony Aquino — Desarrollador de Software" class="portrait-photo" id="portraitImg">
+                <div class="portrait-overlay"></div>
+                <div class="portrait-scanline"></div>
+              </div>
+
+              <div class="portrait-meta">
+                <div class="p-status-dot"></div>
+                <div>
+                  <div class="p-name">Antony Aquino</div>
+                  <div class="p-role">Ingeniería en Sistemas · UMG</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Badges flotantes orbitales con iconos SVG profesionales (sin emojis) -->
+            <div class="orbit-badge b-csharp">
+              <svg class="orbit-svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <span class="orbit-txt">C# · .NET</span>
+            </div>
+            <div class="orbit-badge b-sql">
+              <svg class="orbit-svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              <span class="orbit-txt">MySQL & SQL</span>
+            </div>
+            <div class="orbit-badge b-sec">
+              <svg class="orbit-svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span class="orbit-txt">Ciberseguridad</span>
+            </div>
+            <div class="orbit-badge b-ai">
+              <svg class="orbit-svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg>
+              <span class="orbit-txt">IA & Agentes MCP</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <div class="scroll-indicator fade-up" aria-hidden="true">
@@ -180,21 +228,74 @@
           </div>
 
           <div class="stats-row">
-            <div class="stat-box"><span class="stat-n">6to</span><span class="stat-l">Semestre</span></div>
-            <div class="stat-box"><span class="stat-n">20</span><span class="stat-l">Años</span></div>
-            <div class="stat-box"><span class="stat-n">2+</span><span class="stat-l">Años exp.</span></div>
-            <div class="stat-box"><span class="stat-n">3</span><span class="stat-l">Certs.</span></div>
+            <div class="stat-box"><span class="stat-n" data-count="6" data-suffix="to">6to</span><span class="stat-l">Semestre UMG</span></div>
+            <div class="stat-box"><span class="stat-n" data-count="20" data-suffix="">20</span><span class="stat-l">Años de edad</span></div>
+            <div class="stat-box"><span class="stat-n" data-count="2" data-suffix="+">2+</span><span class="stat-l">Años exp.</span></div>
+            <div class="stat-box"><span class="stat-n" data-count="3" data-suffix="">3</span><span class="stat-l">Certs. oficiales</span></div>
+          </div>
+
+          <!-- Terminal interactiva estilo C# -->
+          <div class="dev-terminal">
+            <div class="terminal-bar">
+              <div class="term-dots">
+                <span class="t-dot t-red"></span>
+                <span class="t-dot t-yellow"></span>
+                <span class="t-dot t-green"></span>
+              </div>
+              <span class="term-title">AntonyAquino.cs</span>
+              <button type="button" class="term-copy-btn" id="copyCodeBtn" aria-label="Copiar código C#">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <pre class="term-content"><code><span class="c-kw">public class</span> <span class="c-type">SoftwareEngineer</span>
+{
+    <span class="c-kw">public string</span> Nombre   { <span class="c-kw">get</span>; } = <span class="c-str">"Antony Steven Aquino"</span>;
+    <span class="c-kw">public string</span> Carrera  { <span class="c-kw">get</span>; } = <span class="c-str">"Ing. en Sistemas (UMG)"</span>;
+    <span class="c-kw">public string</span> Ubicacion{ <span class="c-kw">get</span>; } = <span class="c-str">"Guatemala"</span>;
+    <span class="c-kw">public string[]</span> Skills { <span class="c-kw">get</span>; } = {
+        <span class="c-str">"C#"</span>, <span class="c-str">".NET"</span>, <span class="c-str">"SQL"</span>, <span class="c-str">"Soporte TI"</span>, <span class="c-str">"IA"</span>
+    };
+    <span class="c-kw">public bool</span> ListoParaTrabajar { <span class="c-kw">get</span>; } = <span class="c-bool">true</span>;
+}</code></pre>
           </div>
         </div>
 
         <div>
           <div class="info-card">
             <div class="info-card-title">Información de contacto</div>
-            <div class="info-row"><span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>G Guatemala</div>
-            <div class="info-row"><span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><a href="mailto:antonyaquino444@gmail.com">antonyaquino444@gmail.com</a></div>
-            <div class="info-row"><span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>+502 5265 8783</div>
-            <div class="info-row"><span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-6 10 6-10 6z"/><path d="M6 12v5c0 2 2.5 4 6 4s6-2 6-4v-5"/></svg></span>Universidad Mariano Gálvez</div>
-            <div class="info-row"><span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></span><a href="https://github.com/AntonyAquino" target="_blank">github.com/AntonyAquino</a></div>
+            <div class="info-row">
+              <span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <span>Guatemala · Home Office / Presencial</span>
+            </div>
+            <div class="info-row">
+              <span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+              <a href="mailto:antonyaquino444@gmail.com" class="info-link">antonyaquino444@gmail.com</a>
+              <button type="button" class="btn-copy-chip" data-copy="antonyaquino444@gmail.com" title="Copiar correo">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <div class="info-row">
+              <span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+              <span>+502 5265 8783</span>
+              <button type="button" class="btn-copy-chip" data-copy="+502 5265 8783" title="Copiar teléfono">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <div class="info-row">
+              <span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-6 10 6-10 6z"/><path d="M6 12v5c0 2 2.5 4 6 4s6-2 6-4v-5"/></svg></span>
+              <span>Universidad Mariano Gálvez</span>
+            </div>
+            <div class="info-row">
+              <span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></span>
+              <a href="https://github.com/AntonyAquino" target="_blank" rel="noopener noreferrer" class="info-link">github.com/AntonyAquino</a>
+            </div>
+            <div class="info-row">
+              <span class="info-icon ico-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg></span>
+              <a href="https://www.linkedin.com/in/steven-aquinoo" target="_blank" rel="noopener noreferrer" class="info-link">linkedin.com/in/steven-aquinoo</a>
+            </div>
           </div>
 
           <div class="lang-card">
@@ -227,7 +328,23 @@
 
       <div class="skills-panel" aria-label="Conocimientos y competencias interactivos">
         <div class="skills-panel-head">
-          <p class="know-intro">Haz clic en una área para ver detalle de experiencia, herramientas y competencias.</p>
+          <p class="know-intro">Haz clic en una área para ver detalle de experiencia, herramientas y competencias o busca una tecnología:</p>
+          
+          <div class="skills-controls">
+            <div class="skills-search-wrap">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" class="search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="skillsSearchInput" placeholder="Buscar tecnología (ej. C#, SQL, Redes, Git, IA...)" autocomplete="off">
+              <button type="button" id="skillsSearchClear" class="search-clear-btn" aria-label="Limpiar búsqueda" style="display:none;">✕</button>
+            </div>
+            
+            <div class="skills-category-chips">
+              <button type="button" class="sk-chip active" data-sk-filter="all">Todas</button>
+              <button type="button" class="sk-chip" data-sk-filter="dev">Desarrollo & Backend</button>
+              <button type="button" class="sk-chip" data-sk-filter="infra">Soporte & Redes</button>
+              <button type="button" class="sk-chip" data-sk-filter="data">Bases de Datos</button>
+              <button type="button" class="sk-chip" data-sk-filter="future">IA & Seguridad</button>
+            </div>
+          </div>
         </div>
 
         <div class="acc-list" role="list">
@@ -706,10 +823,10 @@
 
       <div class="filter-bar">
         <button class="filter-btn active" data-cat="all">Todos</button>
+        <button class="filter-btn" data-cat="dev">En desarrollo</button>
         <button class="filter-btn" data-cat="backend">Backend</button>
-        <button class="filter-btn" data-cat="frontend">Frontend</button>
+        <button class="filter-btn" data-cat="frontend">Frontend / Web</button>
         <button class="filter-btn" data-cat="bd">Base de Datos</button>
-        <button class="filter-btn" data-cat="ciberseguridad">Ciberseguridad</button>
         <button class="filter-btn" data-cat="tools">Herramientas</button>
       </div>
 
@@ -727,7 +844,7 @@
           <div class="proj-carousel-3d" id="projCarousel">
             <div class="proj-carousel-track" id="projTrack">
 
-              <!-- FIX: data-offset iniciales correctos (0,1,2,3) para evitar flash de invisibilidad -->
+              <!-- PROYECTO 1: Sistema de Inventario -->
               <div class="proj-card" data-cat="backend bd" data-href="https://github.com/AntonyAquino/inventariogitt" data-offset="0">
                 <div class="proj-img-wrap">
                   <img src="Crudimagen.png" alt="Sistema de Inventario" class="proj-img"
@@ -752,6 +869,7 @@
                 </div>
               </div>
 
+              <!-- PROYECTO 2: Bitácora de Viajes -->
               <div class="proj-card" data-cat="backend bd" data-href="https://github.com/AntonyAquino/viajes" data-offset="1">
                 <div class="proj-img-wrap">
                   <img src="viajesimagen.png" alt="Bitácora de Viajes" class="proj-img"
@@ -776,6 +894,7 @@
                 </div>
               </div>
 
+              <!-- PROYECTO 3: Reportes de Ventas -->
               <div class="proj-card" data-cat="backend bd tools" data-href="https://github.com/AntonyAquino/reportsForm" data-offset="2">
                 <div class="proj-img-wrap">
                   <img src="excelimagen.png" alt="Reportes de Ventas" class="proj-img"
@@ -800,9 +919,10 @@
                 </div>
               </div>
 
-              <div class="proj-card" data-cat="frontend backend bd ciberseguridad tools" data-href="https://skillu.vercel.app" data-offset="3">
+              <!-- PROYECTO 4: SkillU (En desarrollo) -->
+              <div class="proj-card" data-cat="dev frontend backend bd" data-href="#" data-offset="3">
                 <div class="proj-img-wrap">
-                  <img src="skilluimagen.png" alt="SkillU — Plataforma universitaria" class="proj-img"
+                  <img src="skilluimagen.png" alt="SkillU — Marketplace Universitario" class="proj-img"
                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                   <div class="proj-img-fallback">
                     <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
@@ -810,16 +930,45 @@
                   </div>
                 </div>
                 <div class="proj-body">
-                  <div class="proj-cat-tag">Frontend · Backend · Base de Datos · Ciberseguridad</div>
-                  <div class="proj-name">SkillU</div>
-                  <p class="proj-desc">Marketplace universitario guatemalteco que conecta estudiantes verificados con personas que buscan tutorías, desarrollo web y servicios especializados. Landing con diseño oscuro, efectos 3D y despliegue en Vercel.</p>
+                  <div class="proj-badge-dev"><span class="dev-pulse-dot"></span>En desarrollo</div>
+                  <div class="proj-cat-tag">Marketplace · Servicios · Web App</div>
+                  <div class="proj-name">SkillU — Marketplace Universitario</div>
+                  <p class="proj-desc">Una plataforma guatemalteca donde universitarios ofrecen servicios de calidad en una plataforma segura y confiable. Marketplace universitario para conectar talento estudiantil verificado con personas que necesitan apoyo académico y servicios especializados.</p>
                   <div class="proj-footer">
                     <div class="proj-tags">
-                      <span class="ptag">HTML</span>
-                      <span class="ptag">CSS</span>
+                      <span class="ptag">HTML/CSS</span>
+                      <span class="ptag">JavaScript</span>
+                      <span class="ptag">UI/UX</span>
                       <span class="ptag">Vercel</span>
                     </div>
-                    <span class="proj-link proj-link--web">Ver sitio →</span>
+                    <span class="proj-link proj-link--dev">Próximamente →</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PROYECTO 5: Proyecto Musical (En desarrollo) -->
+              <div class="proj-card" data-cat="dev frontend" data-href="#" data-offset="4">
+                <div class="proj-img-wrap">
+                  <img src="musicalimagen.png" alt="Sitio Web Interactivo — Proyecto Musical" class="proj-img"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="proj-img-fallback">
+                    <span class="fallback-icon ico-box ico-box--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+                    <span>Proyecto Musical</span>
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-badge-dev"><span class="dev-pulse-dot"></span>En desarrollo</div>
+                  <div class="proj-cat-tag">Frontend · Animaciones · Multimedia Inmersiva</div>
+                  <div class="proj-name">Sitio Web Interactivo — Proyecto Musical</div>
+                  <p class="proj-desc">Desarrollo de un sitio web interactivo para un proyecto musical guatemalteco, con una propuesta visual inmersiva basada en su identidad artística. El proyecto integra desarrollo frontend, animaciones, navegación interactiva y presentación de contenido multimedia mediante recursos visuales personalizados.</p>
+                  <div class="proj-footer">
+                    <div class="proj-tags">
+                      <span class="ptag">Frontend</span>
+                      <span class="ptag">Animaciones</span>
+                      <span class="ptag">Audio/Multimedia</span>
+                      <span class="ptag">UI Inmersiva</span>
+                    </div>
+                    <span class="proj-link proj-link--dev">Próximamente →</span>
                   </div>
                 </div>
               </div>
@@ -918,54 +1067,85 @@
             Disponible para proyectos, prácticas o colaboraciones. ¡No dudes en escribirme!
           </p>
           <div class="contact-cards">
-            <a href="mailto:antonyaquino444@gmail.com" class="contact-card">
-              <div class="cc-icon ico-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div>
-                <div class="cc-label">Email</div>
-                <div class="cc-val">antonyaquino444@gmail.com</div>
-              </div>
-            </a>
-            <a href="tel:+50252658783" class="contact-card">
-              <div class="cc-icon ico-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-              </div>
-              <div>
-                <div class="cc-label">Teléfono</div>
-                <div class="cc-val">+502 5265 8783</div>
-              </div>
-            </a>
             <div class="contact-card">
-              <div class="cc-icon ico-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div>
-                <div class="cc-label">Ubicación</div>
-                <div class="cc-val">Guatemala · Home office disponible</div>
+              <a href="mailto:antonyaquino444@gmail.com" class="cc-main-link">
+                <div class="cc-icon ico-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <div class="cc-label">Email Principal</div>
+                  <div class="cc-val">antonyaquino444@gmail.com</div>
+                </div>
+              </a>
+              <button type="button" class="btn-copy-chip" data-copy="antonyaquino444@gmail.com" title="Copiar correo">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+
+            <div class="contact-card">
+              <a href="tel:+50252658783" class="cc-main-link">
+                <div class="cc-icon ico-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                </div>
+                <div>
+                  <div class="cc-label">Teléfono / WhatsApp</div>
+                  <div class="cc-val">+502 5265 8783</div>
+                </div>
+              </a>
+              <button type="button" class="btn-copy-chip" data-copy="+502 5265 8783" title="Copiar número">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+
+            <div class="contact-card">
+              <div class="cc-main-link">
+                <div class="cc-icon ico-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <div class="cc-label">Ubicación</div>
+                  <div class="cc-val">Guatemala · Presencial & Remoto</div>
+                </div>
               </div>
             </div>
-            <a href="https://github.com/AntonyAquino" target="_blank" class="contact-card">
-              <div class="cc-icon ico-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              </div>
-              <div>
-                <div class="cc-label">GitHub</div>
-                <div class="cc-val">github.com/AntonyAquino</div>
-              </div>
-            </a>
+
+            <div class="contact-card">
+              <a href="https://github.com/AntonyAquino" target="_blank" rel="noopener noreferrer" class="cc-main-link">
+                <div class="cc-icon ico-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                </div>
+                <div>
+                  <div class="cc-label">Perfil GitHub</div>
+                  <div class="cc-val">github.com/AntonyAquino</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="contact-card">
+              <a href="https://www.linkedin.com/in/steven-aquinoo" target="_blank" rel="noopener noreferrer" class="cc-main-link">
+                <div class="cc-icon ico-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>
+                </div>
+                <div>
+                  <div class="cc-label">Perfil LinkedIn</div>
+                  <div class="cc-val">linkedin.com/in/steven-aquinoo</div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
 
         <div class="form-wrap">
           <span class="form-title">Enviar mensaje</span>
-          <form action="https://api.web3forms.com/submit" method="POST" class="form-stack">
+          <form action="https://api.web3forms.com/submit" method="POST" class="form-stack" id="contactForm">
             <input type="hidden" name="access_key" value="e907c03b-52a8-4b68-8542-f600548f5d71">
             <input  type="text"  name="name"    placeholder="Tu nombre"    class="fi" required>
             <input  type="email" name="email"   placeholder="Tu email"     class="fi" required>
             <textarea            name="message" placeholder="Tu mensaje..." rows="5" class="fi" required></textarea>
-            <button type="submit" class="btn-gold" style="align-self:flex-start">
-              Enviar mensaje →
+            <button type="submit" class="btn-gold btn-shine" style="align-self:flex-start">
+              <span>Enviar mensaje →</span>
             </button>
           </form>
         </div>
@@ -982,6 +1162,21 @@
     <div class="footer-brand">Antony A.</div>
   </footer>
 
-  <script src="main.js?v=5"></script>
+  <!-- Botón flotante Volver Arriba -->
+  <button id="backToTop" class="back-to-top" type="button" aria-label="Volver arriba">
+    <svg class="progress-ring" width="46" height="46" viewBox="0 0 46 46">
+      <circle class="progress-ring__bg" stroke="rgba(255,255,255,0.08)" stroke-width="2.5" fill="transparent" r="19" cx="23" cy="23"/>
+      <circle class="progress-ring__circle" stroke="var(--gold)" stroke-width="2.5" stroke-dasharray="119.38" stroke-dashoffset="119.38" fill="transparent" r="19" cx="23" cy="23"/>
+    </svg>
+    <svg class="arrow-up" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Toast Notification -->
+  <div id="toastNotice" class="toast-notice" role="status" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span id="toastMsg">Texto copiado al portapapeles</span>
+  </div>
+
+  <script src="main.js?v=10"></script>
 </body>
 </html>

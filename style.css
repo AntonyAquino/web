@@ -1355,6 +1355,10 @@ section { padding: 6.5rem 3rem; position: relative; z-index: 1; overflow: hidden
 .proj-card[data-offset="3"],
 .proj-card[data-offset="-4"],
 .proj-card[data-offset="4"],
+.proj-card[data-offset="-5"],
+.proj-card[data-offset="5"],
+.proj-card[data-offset="-6"],
+.proj-card[data-offset="6"],
 .proj-card[data-offset="99"] {
   transform: translate(-50%, -50%) translateZ(-250px) scale(0.5);
   opacity: 0; z-index: 0; pointer-events: none;
